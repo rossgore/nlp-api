@@ -1,0 +1,2224 @@
+<!doctype html><html dir="ltr" lang="en"><head>
+	<script src="//cdn.blueconic.net/ing.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portugal: On track for another good year | Article | ING Think</title>
+	<meta name="description" content="The government continues to focus on reducing public debt and the deficit however strong house price growth&nbsp;is becoming a concern.&nbsp;We expect the econo...">
+	<meta name="date_published" content= "2018-09-17" />
+	<meta name="copyright" content="© ING Groep N.V. All rights reserved." />
+	<meta name="generator" content="ING" />
+	<meta name="author" content="Steven Trypsteen">
+
+	<link rel="canonical" href="https://think.ing.com/articles/eurozone-portugal-economy-on-track-for-another-good-year/">
+
+	<!-- open graph -->
+	<meta property="og:site_name" content="ING Think">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Portugal: On track for another good year">
+	<meta property="og:description" content="The government continues to focus on reducing public debt and the deficit however strong house price growth&nbsp;is becoming a concern.&nbsp;We expect the econo...">
+	<meta property="og:image" content="https://think.ing.com/uploads/hero/_w800h450/170918-image-portugal.jpg">
+	<meta property="og:url" content="https://think.ing.com/articles/eurozone-portugal-economy-on-track-for-another-good-year/">
+
+	<!-- Twitter card -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:site" content="@ING_Economics">
+	<meta property="twitter:title" content="Portugal: On track for another good year">
+	<meta property="twitter:description" content="The government continues to focus on reducing public debt and the deficit however strong house price growth&nbsp;is becoming a concern.&nbsp;We expect the econo...">
+	<meta property="twitter:image" content="https://think.ing.com/uploads/hero/_w800h450/170918-image-portugal.jpg">
+	<meta name="twitter:widgets:theme" content="light">
+	<meta name="twitter:widgets:link-color" content="#55acee">
+	<meta name="twitter:widgets:border-color" content="#55acee">
+
+	<meta property="article:author" content="https://www.facebook.com/ING" />
+	<link rel="apple-touch-icon" sizes="57x57" href="https://think.ing.com/uploads/general/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="https://think.ing.com/uploads/general/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="https://think.ing.com/uploads/general/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="https://think.ing.com/uploads/general/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="https://think.ing.com/uploads/general/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="https://think.ing.com/uploads/general/apple-touch-icon-120x120.png">
+	<link rel="icon" type="image/png" href="https://think.ing.com/uploads/general/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="https://think.ing.com/uploads/general/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="https://think.ing.com/uploads/general/favicon-16x16.png" sizes="16x16">
+	<link rel="shortcut icon" href="https://think.ing.com/uploads/general/favicon.ico" />
+
+	<!-- CSS -->
+<link href="https://think.ing.com/cache/42390936dcfea64d4630e0516b43e82b01c0fab5.1563807732.css" rel="stylesheet">
+
+	<link href="/css/ing_print.css" rel="stylesheet" media="print">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "Article",
+		"mainEntityOfPage": {"@type":"WebPage","@id":"https://think.ing.com/articles/eurozone-portugal-economy-on-track-for-another-good-year/"},
+		"headline": "Portugal: On track for another good year",
+		"description": "The government continues to focus on reducing public debt and the deficit however strong house price growth&nbsp;is becoming a concern.&nbsp;We expect the econo...",
+		"image": {"@type":"ImageObject","url":"https://think.ing.com/uploads/hero/_w800h450/170918-image-portugal.jpg","width":800,"height":450},
+		"author": { "@type":"Person","name":"Steven Trypsteen "},
+		"datePublished": "2018-09-17",
+		"dateModified": "2018-09-17",
+		"publisher": { "@type":"Organization","name":"ING Think","logo": {"@type":"ImageObject","url":"https://think.ing.com/uploads/general/logo.hd.jpg","width": 600,"height": 60} }
+	}
+	</script>
+
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-100708876-1', 'auto');
+
+    var analytic_dimension_consumer = ''
+    var analytic_dimension_featured = ''
+    var analytic_dimension_markets = ''
+    var analytic_dimension_themes = ''
+
+    if (analytic_dimension_themes != "") {
+      ga('set', 'dimension1', analytic_dimension_themes)
+    }
+    if (analytic_dimension_markets != "") {
+      ga('set', 'dimension2', analytic_dimension_markets)
+    }
+    if (analytic_dimension_consumer != "") {
+      ga('set', 'dimension3', analytic_dimension_consumer)
+    }
+    if (analytic_dimension_featured != "") {
+      ga('set', 'dimension4', analytic_dimension_featured)
+    }
+    ga('send', 'pageview');
+
+
+		ga('send', 'pageview');
+	</script>
+
+	<script>document.createElement( "picture" );</script>
+  <script src="/js/picturefill.min.js" async></script>
+
+</head>
+
+<body>
+
+	
+<div class="navmenu navmenu-default navmenu-fixed-right offcanvas" role="navigation">
+
+<a class="navmenu-brand" href="https://think.ing.com/">ING <strong>Think</strong></a>
+
+	<ul class="nav navmenu-nav">
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			<ul class="dropdown-menu navmenu-nav">
+			
+				<li><a href="/themes/geopolitics-and-globalisation/">Geopolitics and Globalisation</a></li>
+			
+				<li><a href="/themes/sustainability/">Sustainability</a></li>
+			
+				<li><a href="/themes/digital-innovation/">Digital Innovation</a></li>
+			
+				<li><a href="/themes/ecb/">ECB</a></li>
+			
+				<li><a href="/themes/federal-reserve/">Federal Reserve</a></li>
+			
+			</ul>
+		</li>
+		
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Regions <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			<ul class="dropdown-menu navmenu-nav">
+			
+				<li><a href="/region/europe/">Europe</a></li>
+			
+				<li><a href="/region/central-and-eastern-europe/">Central and Eastern Europe</a></li>
+			
+				<li><a href="/region/north-america/">North America</a></li>
+			
+				<li><a href="/region/asia-pacific/">Asia/Pacific</a></li>
+			
+				<li><a href="/region/latin-america/">Latin America</a></li>
+			
+				<li><a href="/region/middle-east-africa/">Middle East & Africa</a></li>
+			
+			</ul>
+		</li>
+
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Markets <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			<ul class="dropdown-menu navmenu-nav">
+			
+				<li><a href="/market/global-economics/">Global Economics</a></li>
+			
+				<li><a href="/market/fx/">FX</a></li>
+			
+				<li><a href="/market/commodities/">Commodities</a></li>
+			
+				<li><a href="/market/trade/">Trade</a></li>
+			
+				<li><a href="/market/fixed-income/">Fixed Income</a></li>
+			
+				<li><a href="/market/rates/">Rates</a></li>
+			
+				<li><a href="/market/sectors/">Sectors</a></li>
+			
+			</ul>
+		</li>
+
+		<li class=""><a href="/consumer/">Consumer</a></li>
+		<li class=""><a href="/outside/">THINK Outside</a></li>
+		<li class=""><a href="/bundles/">Bundles</a></li>
+	</ul>
+
+<hr>
+
+<ul class="nav navmenu-nav">
+	<li><a href="/snaps/">Snaps</a></li>
+	<li><a href="/articles/">Articles</a></li>
+	<li><a href="/reports/">Reports</a></li>
+	<li><a href="/opinions/">Opinions</a></li>
+</ul>
+
+<hr>
+
+<ul class="nav navmenu-nav">
+<li class="first"><a href="/about/about-us/">About us</a></li>
+<li><a href="/about/meet-the-team/">Meet the team</a></li>
+<li class="last"><a href="/about/external-authors/">External authors</a></li>
+</ul>
+
+</div>
+
+
+	<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+
+<div class="container">
+
+<div class="navbar-header">
+	<a class="navbar-brand" href="/"><img src="/uploads/general/logo.hd.png" alt="ING Economic and Financial Analysis"></a>
+</div>
+
+<div id="navbar" class="navbar-collapse collapse">
+
+<div class="nav navbar-nav navbar-right">
+	<div class="navbar-header">
+		<div class="navbar-name hidden-xs"><strong>THINK</strong> Economic and Financial Analysis</div>
+	</div>
+
+	<form class="form-inline" method="post" action="https://think.ing.com/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="params" value="eyJyZXF1aXJlZCI6ImtleXdvcmRzIn0" />
+<input type="hidden" name="ACT" value="32" />
+<input type="hidden" name="site_id" value="1" />
+<input type="hidden" name="csrf_token" value="117b5c23d83a700ac932be3a4812b34789370e65" />
+</div>
+
+
+	<div class="input-group search-field">
+		<input type="search" name="keywords" class="form-control" placeholder="Search">
+		<span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button></span>
+	</div>
+	</form>
+	
+	<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar top-bar"></span>
+		<span class="icon-bar middle-bar"></span>
+		<span class="icon-bar bottom-bar"></span>
+		<span class="txt">Menu</span>
+	</button>
+</div>
+
+
+
+
+<ul class="nav navbar-nav">
+
+<li class="main hidden-xs hidden-sm"><a href="/">Home</a></li>
+
+	<li class="main dropdown dropdown-large">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Themes <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+		<ul class="dropdown-menu dropdown-menu-large">
+		<div class="container">
+		<div class="row">
+
+			<div class="col-sm-5 col-md-4">
+				<ul id="nav_categories" class="nav nav-pills nav-pills-nav nav-themes">
+			<li>
+					<a href="/themes/geopolitics-and-globalisation/" aria-controls="cat_104" role="tab" data-target="#cat_104" data-hover="tab">Geopolitics and Globalisation</a>
+				
+				<ul>
+					<li>
+					<a href="/themes/brexit/" aria-controls="cat_44" role="tab" data-target="#cat_44" data-hover="tab">Brexit</a>
+				</li>
+					<li>
+					<a href="/themes/trump/" aria-controls="cat_45" role="tab" data-target="#cat_45" data-hover="tab">Trump</a>
+				</li>
+					<li>
+					<a href="/themes/trade/" aria-controls="cat_106" role="tab" data-target="#cat_106" data-hover="tab">Trade</a>
+				</li>
+				</ul>
+</li>
+			<li>
+					<a href="/themes/sustainability/" aria-controls="cat_105" role="tab" data-target="#cat_105" data-hover="tab">Sustainability</a>
+				</li>
+			<li>
+					<a href="/themes/digital-innovation/" aria-controls="cat_88" role="tab" data-target="#cat_88" data-hover="tab">Digital Innovation</a>
+				</li>
+		</ul>
+
+			</div>
+			<div class="col-sm-7 col-md-8">
+				<div class="tab-content">
+					
+					<div role="tabpanel" class="tab-pane fade in active" id="cat_104">
+						
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/snaps/japanese-korean-trade-tensions-worsen/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			<object><a href="/themes/geopolitics-and-globalisation/"><span class="label label-default">Geopolitics and Globalisation</a></object> 
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/020819-image-japan_south_korea_flag_320_240_70.jpg"
+					width="100%"
+					alt="Japanese-Korean trade tensions worsen">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>2 August 2019</small><br />
+			<strong>Japanese-Korean trade tensions worsen</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>Japan has formally removed South Korea from a list of countries exempted from se...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/snaps/how-will-china-retaliate-against-higher-tariffs/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>How will China retaliate against higher tariffs?</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/snaps/trade-talks-tariff-threat-has-not-subsided/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>Trade talks: Tariff threat has not subsided</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/articles/hong-kong-future-amid-protests-and-a-trade-war/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Hong Kong&#8217;s future amid protests and a trade war </strong> 
+	</div>
+</a>
+
+	</div>
+</div> <!-- row -->
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_44">
+						
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/opinions/boriss-brexit/" class="thumbnail entry opinion thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			<object><a href="/themes/geopolitics-and-globalisation/"><span class="label label-default">Geopolitics and Globalisation</a></object> 
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/Boris_Johnson1_1_320_240_70.jpg"
+					width="100%"
+					alt="Anatole Kaletsky: Boris’s Brexit">
+			<span class="badge badge-primary">THINK Outside</span>
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>25 July 2019</small><br />
+			<strong>Anatole Kaletsky: Boris’s Brexit</strong>
+			<p class="hidden-xs"><object><a href="/opinions/">Opinion</a></object><span class="vr divider"></span>Political betting markets put the chance of a no-deal Brexit at roughly one-thir...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/watch-boris-brexit-the-bank-and-britains-pound/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Watch: Boris, Brexit, the Bank and Britain&#8217;s pound</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/articles/brexit-and-the-next-100-days-in-five-charts/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Brexit and the next 100 days in five charts</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/articles/watch-switzerlands-brexit-warning/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Watch: Switzerland&#8217;s Brexit warning</strong> 
+	</div>
+</a>
+
+	</div>
+</div> <!-- row -->
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_45">
+						
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/snaps/trade-talks-tariff-threat-has-not-subsided/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			<object><a href="/themes/geopolitics-and-globalisation/"><span class="label label-default">Geopolitics and Globalisation</a></object> 
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/trade_talks_edit_320_240_70.jpg"
+					width="100%"
+					alt="Trade talks: Tariff threat has not subsided">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>1 August 2019</small><br />
+			<strong>Trade talks: Tariff threat has not subsided</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>No signs of real progress have come out of trade talks between the US and China ...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/trump-needs-to-take-a-step-back-to-win-his-trade-war/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Trump needs to take a step back to win his trade war </strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/snaps/strong-trade-liberalisation-despite-trade-war/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>Strong trade liberalisation despite trade war</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/articles/Trump-leads-while-democratic-front-runners-emerge/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Trump leads while Democratic front runners emerge </strong> 
+	</div>
+</a>
+
+	</div>
+</div> <!-- row -->
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_106">
+						
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/snaps/japanese-korean-trade-tensions-worsen/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			<object><a href="/themes/geopolitics-and-globalisation/"><span class="label label-default">Geopolitics and Globalisation</a></object> 
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/020819-image-japan_south_korea_flag_320_240_70.jpg"
+					width="100%"
+					alt="Japanese-Korean trade tensions worsen">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>2 August 2019</small><br />
+			<strong>Japanese-Korean trade tensions worsen</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>Japan has formally removed South Korea from a list of countries exempted from se...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/snaps/how-will-china-retaliate-against-higher-tariffs/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>How will China retaliate against higher tariffs?</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/snaps/trade-talks-tariff-threat-has-not-subsided/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>Trade talks: Tariff threat has not subsided</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/articles/federal-reserve-us-rate-cut-trump-fed-fomc/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>The US Fed&#8217;s expected to prolong the party with a cut this week</strong> 
+	</div>
+</a>
+
+	</div>
+</div> <!-- row -->
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_105">
+						
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/articles/food-manufacturers-turn-to-robots-to-meet-customers-needs/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			<object><a href="/themes/sustainability/"><span class="label label-default">Sustainability</a></object> </span>
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/290419-image-food-tech_320_240_70.jpg"
+					width="100%"
+					alt=" Food manufacturers turn to robots to meet consumer needs">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>30 April 2019</small><br />
+			<strong> Food manufacturers turn to robots to meet consumer needs</strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>The importance of technology for food manufacturers continues to grow, according...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/cost-of-transition-to-a-low-carbon-economy/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Counting the cost of a low carbon economy  </strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/reports/the-move-to-a-circular-economy/" class="thumbnail entry report list small">
+	<div class="caption">
+		<strong>The move to a circular economy</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/articles/the-circular-economys-six-c-challenge/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>The Circular Economy’s Six ‘C’ Challenge</strong> 
+	</div>
+</a>
+
+	</div>
+</div> <!-- row -->
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_88">
+						
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/articles/watch-how-can-ai-best-serve-our-financial-lives/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			<object><a href="/themes/digital-innovation/"><span class="label label-default">Digital Innovation</a></object> </span>
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/uploads/hero/_w320/mmm.PNG"
+					width="100%"
+					alt="Watch: How can AI best serve our financial lives? ">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>29 July 2019</small><br />
+			<strong>Watch: How can AI best serve our financial lives? </strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>Artificial Intelligence is increasingly being used to help people make better fi...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/watch-how-consumers-can-benefit-from-the-cyber-society/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Watch: How consumers can benefit from the Cyber Society</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/opinions/the-digital-revolution-of-wellbeing/" class="thumbnail entry opinion list small">
+	<div class="caption">
+		<strong>The “Digital Revolution” of Wellbeing</strong> 
+	</div>
+</a>
+
+	
+
+	<a href="https://think.ing.com/articles/new-money-v-central-bank-digital-currencies-may-come-soon-to-wholesale-market/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>New Money V: Central Bank Digital Currencies may soon hit the wholesale market</strong> 
+	</div>
+</a>
+
+	</div>
+</div> <!-- row -->
+					</div>
+					
+				</div> <!-- tab-content -->
+			</div>
+
+		</div> <!-- row -->
+		</div> <!-- container -->
+		</ul> <!-- / dropdown-menu-large -->
+		</li> <!-- / dropdown-large -->
+
+
+<li class="main dropdown dropdown-large">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Regions <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+<ul class="dropdown-menu dropdown-menu-large">
+  <div class="container">
+  <div class="row">
+	<div class="col-sm-5 col-md-3">
+    <ul class="nav nav-pills nav-pills-nav" role="tablist">
+		
+			<li role="presentation" class="active"><a href="/region/europe/" aria-controls="cat_48" role="tab" data-target="#cat_48" data-hover="tab">Europe</a></li>
+		
+			<li role="presentation"><a href="/region/central-and-eastern-europe/" aria-controls="cat_69" role="tab" data-target="#cat_69" data-hover="tab">Central and Eastern Europe</a></li>
+		
+			<li role="presentation"><a href="/region/north-america/" aria-controls="cat_55" role="tab" data-target="#cat_55" data-hover="tab">North America</a></li>
+		
+			<li role="presentation"><a href="/region/asia-pacific/" aria-controls="cat_47" role="tab" data-target="#cat_47" data-hover="tab">Asia/Pacific</a></li>
+		
+			<li role="presentation"><a href="/region/latin-america/" aria-controls="cat_53" role="tab" data-target="#cat_53" data-hover="tab">Latin America</a></li>
+		
+			<li role="presentation"><a href="/region/middle-east-africa/" aria-controls="cat_54" role="tab" data-target="#cat_54" data-hover="tab">Middle East & Africa</a></li>
+		
+    </ul>
+	</div>
+  <div class="col-sm-7 col-md-9">
+		<div class="row">
+			<div class="col-md-6" style="border-left: 2px solid #dedede;">
+				<div class="tab-content">
+					
+					<div role="tabpanel" class="tab-pane fade in active" id="cat_48">
+						
+
+	<a href="https://think.ing.com/snaps/germany-order-books-some-relief/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/170801-image-europe_industry_320_240_70.jpg"
+					width="100%"
+					alt="Germany: Some relief from industrial orders">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>6 August 2019</small><br />
+			<strong>Germany: Some relief from industrial orders</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>New orders rebound on strong demand from non-eurozone countries, indicating that...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+
+
+	<a href="https://think.ing.com/snaps/uk-services-pmi-subdued-as-brexit-uncertainty-mounts/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>UK services PMI subdued as Brexit uncertainty mounts</strong> 
+	</div>
+</a>
+
+
+	<a href="https://think.ing.com/snaps/eurozone-strong-june-retail-sales-confirm-reliance-on-consumption-for-growth/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>Is consumption the only game in town for the eurozone?</strong> 
+	</div>
+</a>
+
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_69">
+						
+
+	<a href="https://think.ing.com/snaps/czech-republic-positive-retail-sales-in-june/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/010218-image-czechrepublic-prague-people_320_240_70.jpg"
+					width="100%"
+					alt="Czech Republic retail sales rise in June">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>7 August 2019</small><br />
+			<strong>Czech Republic retail sales rise in June</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>Retail sales rose by 4.6% YoY in June, improving considerably from May.&nbsp;How...</p>
+			<small class="last_edit_js last_updated" datetime="2019-08-07T14:50:04+01:00" >1565185804</small>
+		</div>
+	</div>
+	</div>
+</a>
+
+
+
+	<a href="https://think.ing.com/snaps/hungary-industry-switches-to-summer-mode/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>Hungary: Industry switches to &#8216;summer&#8217; mode</strong> <small class="last_edit_js last_updated" datetime="2019-08-07T09:38:48+01:00" >1565167128</small>
+	</div>
+</a>
+
+
+	<a href="https://think.ing.com/snaps/briefing-romania-7-8-19/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>Briefing Romania</strong> <small class="last_edit_js last_updated" datetime="2019-08-07T07:59:29+01:00" >1565161169</small>
+	</div>
+</a>
+
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_55">
+						
+
+	<a href="https://think.ing.com/articles/trade-trumps-positive-payrolls/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			<object><a href="/themes/federal-reserve/"><span class="label label-default">Federal Reserve</a></object> </span>
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/us_jobs_editorial_320_240_70.jpg"
+					width="100%"
+					alt="Trade trumps positive payrolls">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>2 August 2019</small><br />
+			<strong>Trade trumps positive payrolls</strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>Another decent jobs&#39; report, but with heightened trade tensions posing downs...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+
+
+	<a href="https://think.ing.com/articles/watch-dont-get-carried-away-by-fed-fever/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Watch: Don&#8217;t get carried away by Fed fever</strong> 
+	</div>
+</a>
+
+
+	<a href="https://think.ing.com/articles/trump-needs-to-take-a-step-back-to-win-his-trade-war/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Trump needs to take a step back to win his trade war </strong> 
+	</div>
+</a>
+
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_47">
+						
+
+	<a href="https://think.ing.com/articles/bank-of-thailand-catches-markets-off-guard/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/270917-image-Thailand-Bangkok_320_240_70.jpg"
+					width="100%"
+					alt="Bank of Thailand catches markets off-guard ">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>7 August 2019</small><br />
+			<strong>Bank of Thailand catches markets off-guard </strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>Our high-conviction, low-probability call of a rate cut has paid off. While rate...</p>
+			<small class="last_edit_js last_updated" datetime="2019-08-07T09:41:04+01:00" >1565167264</small>
+		</div>
+	</div>
+	</div>
+</a>
+
+
+
+	<a href="https://think.ing.com/articles/indias-rbi-cuts-more-than-consensus-by-35bp/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>India’s RBI cuts more than consensus by 35bp</strong> <small class="last_edit_js last_updated" datetime="2019-08-07T08:39:35+01:00" >1565163575</small>
+	</div>
+</a>
+
+
+	<a href="https://think.ing.com/snaps/rbnz-delivers-double-barrel-50bp-cut/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>RBNZ delivers double-barrel 50bp cut</strong> <small class="last_edit_js last_updated" datetime="2019-08-07T04:13:20+01:00" >1565147600</small>
+	</div>
+</a>
+
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_53">
+						
+
+	<a href="https://think.ing.com/articles/brazil-frontloading-the-easing-cycle/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/260418-Brazil-sao-paolo-sky-line_320_240_70.jpg"
+					width="100%"
+					alt="Brazil: Frontloading the easing cycle">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>29 July 2019</small><br />
+			<strong>Brazil: Frontloading the easing cycle</strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>Decisive progress on the passage of the pension reform should pave the way for c...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+
+
+	<a href="https://think.ing.com/articles/mexico-lower-economic-growth-to-pressure-ratings-but-prudent-banxico-should-support-mxn/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Mexico: Lower growth to pressure ratings but prudent Banxico should support peso</strong> 
+	</div>
+</a>
+
+
+	<a href="https://think.ing.com/reports/latam-fx-talking-the-brazil-vs-mexico-divergence-gains-steam/" class="thumbnail entry report list small">
+	<div class="caption">
+		<strong>LATAM FX Talking: The Brazil vs Mexico divergence gains steam</strong> 
+	</div>
+</a>
+
+					</div>
+					
+					<div role="tabpanel" class="tab-pane fade" id="cat_54">
+						
+
+	<a href="https://think.ing.com/articles/watch-our-view-on-south-africas-economic-prospects/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/sa_tr_320_240_70.jpg"
+					width="100%"
+					alt="Watch: Our view on South Africa&#8217;s economic prospects">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>3 June 2019</small><br />
+			<strong>Watch: Our view on South Africa&#8217;s economic prospects</strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>Since South Africa&rsquo;s general election, the rand is down by 3% and credit d...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+
+
+	<a href="https://think.ing.com/articles/south-africa-reaffirming-the-tedious-reform-course/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>South Africa: Reaffirming the tedious reform course</strong> 
+	</div>
+</a>
+
+
+	<a href="https://think.ing.com/reports/fx-talking-dining-out-on-the-feds-pause/" class="thumbnail entry report list small">
+	<div class="caption">
+		<strong>FX Talking: Dining out on the Fed&#8217;s pause</strong> 
+	</div>
+</a>
+
+					</div>
+					
+				</div> <!-- tab-content -->
+			</div>
+			<div class="col-md-6 hidden-sm" style="border-left: 2px solid #dedede;">
+				<div class="banner worldmap">	<a href="/regions/">	<span class="frame">		<img src="https://staging.ingthink.com/uploads/general/worldmap_small.gif" alt="Explore our world map">	</span>	<div class="caption">Explore our world map</div>	</a></div>
+			</div>
+		</div> <!-- row -->
+  </div>
+  </div> <!-- row -->
+  </div> <!-- container -->
+</ul> <!-- / dropdown-menu-large -->
+</li> <!-- / dropdown-large -->
+
+
+
+<li class="main dropdown dropdown-large">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Markets <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+<ul class="dropdown-menu dropdown-menu-large">
+  <div class="container">
+  <div class="row">
+
+	<div class="col-sm-5 col-md-3">
+    <ul class="nav nav-pills nav-pills-nav" role="tablist">
+		
+			<li role="presentation" class="active"><a href="/market/global-economics/" aria-controls="cat_35" role="tab" data-target="#cat_35" data-hover="tab">Global Economics</a></li>
+		
+			<li role="presentation"><a href="/market/fx/" aria-controls="cat_36" role="tab" data-target="#cat_36" data-hover="tab">FX</a></li>
+		
+			<li role="presentation"><a href="/market/commodities/" aria-controls="cat_38" role="tab" data-target="#cat_38" data-hover="tab">Commodities</a></li>
+		
+			<li role="presentation"><a href="/market/fixed-income/" aria-controls="cat_96" role="tab" data-target="#cat_96" data-hover="tab">Fixed Income</a></li>
+		
+			<li role="presentation"><a href="/market/rates/" aria-controls="cat_37" role="tab" data-target="#cat_37" data-hover="tab">Rates</a></li>
+		
+			<li role="presentation"><a href="/market/sectors/" aria-controls="cat_41" role="tab" data-target="#cat_41" data-hover="tab">Sectors</a></li>
+		
+    </ul>
+	</div>
+  <div class="col-sm-7 col-md-9">
+    <div class="tab-content">
+			
+			<div role="tabpanel" class="tab-pane fade in active" id="cat_35">
+				
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/snaps/czech-republic-positive-retail-sales-in-june/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/010218-image-czechrepublic-prague-people_320_240_70.jpg"
+					width="100%"
+					alt="Czech Republic retail sales rise in June">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>7 August 2019</small><br />
+			<strong>Czech Republic retail sales rise in June</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>Retail sales rose by 4.6% YoY in June, improving considerably from May.&nbsp;How...</p>
+			<small class="last_edit_js last_updated" datetime="2019-08-07T14:50:04+01:00" >1565185804</small>
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/bank-of-thailand-catches-markets-off-guard/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Bank of Thailand catches markets off-guard </strong> <small class="last_edit_js last_updated" datetime="2019-08-07T09:41:04+01:00" >1565167264</small>
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/snaps/hungary-industry-switches-to-summer-mode/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>Hungary: Industry switches to &#8216;summer&#8217; mode</strong> <small class="last_edit_js last_updated" datetime="2019-08-07T09:38:48+01:00" >1565167128</small>
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/indias-rbi-cuts-more-than-consensus-by-35bp/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>India’s RBI cuts more than consensus by 35bp</strong> <small class="last_edit_js last_updated" datetime="2019-08-07T08:39:35+01:00" >1565163575</small>
+	</div>
+</a>
+	</div>
+</div> <!-- row -->
+			</div>
+			
+			<div role="tabpanel" class="tab-pane fade" id="cat_36">
+				
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/articles/daily-fx-strategy-race-to-the-bottom/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/190719-image-federal-reserve_320_240_70.jpg"
+					width="100%"
+					alt="Daily FX Strategy: Race to the bottom">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>7 August 2019</small><br />
+			<strong>Daily FX Strategy: Race to the bottom</strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>With commodity markets under pressure and the 2-10 US year yield curve at the fl...</p>
+			<small class="last_edit_js last_updated" datetime="2019-08-07T08:49:59+01:00" >1565164199</small>
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/watch-two-key-market-implications-of-the-us-china-fx-war/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Watch: Two key market implications of the US-China FX war</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/nzd-usd-ready-for-another-leg-lower/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>NZD/USD: Ready for another leg lower</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/daily-fx-strategy-china-tempers-yuan-selloff/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Daily FX Strategy: China tempers yuan sell-off</strong> 
+	</div>
+</a>
+	</div>
+</div> <!-- row -->
+			</div>
+			
+			<div role="tabpanel" class="tab-pane fade" id="cat_38">
+				
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/snaps/the-commodities-feed-oil-bear-market/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/170524-image-oilsunset_320_240_70.jpg"
+					width="100%"
+					alt="The Commodities Feed: Oil bear market">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>7 August 2019</small><br />
+			<strong>The Commodities Feed: Oil bear market</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>Your daily roundup of commodity news and ING views</p>
+			<small class="last_edit_js last_updated" datetime="2019-08-07T08:14:39+01:00" >1565162079</small>
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/crude-oil-further-opec-cuts-needed/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Crude oil: Further OPEC+ cuts needed?</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/snaps/the-commodities-feed-wti-relative-strength/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>The Commodities Feed: WTI relative strength </strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/snaps/the-commodities-feed-saudi-osp-lowered/" class="thumbnail entry snap list small">
+	<div class="caption">
+		<strong>The Commodities Feed: Saudi OSP lowered</strong> 
+	</div>
+</a>
+	</div>
+</div> <!-- row -->
+			</div>
+			
+			<div role="tabpanel" class="tab-pane fade" id="cat_96">
+				
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/articles/mexico-lower-economic-growth-to-pressure-ratings-but-prudent-banxico-should-support-mxn/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/Mexicopresident_320_240_70.jpg"
+					width="100%"
+					alt="Mexico: Lower growth to pressure ratings but prudent Banxico should support peso">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>22 July 2019</small><br />
+			<strong>Mexico: Lower growth to pressure ratings but prudent Banxico should support peso</strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>Domestic policy uncertainties and the perception of an anti-business bias by the...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/articles/emperor-draghis-not-naked-the-ecb-has-corporates-and-banks-in-cspp2/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Emperor Draghi’s not naked, the ECB has corporates (and banks) in CSPP2</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/croatia-good-or-very-good-news/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Croatia: Good or very good news?</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/South-Africa-Government-support-for-Eskom-could-prove-costly/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>South Africa: Government support for Eskom could prove costly</strong> 
+	</div>
+</a>
+	</div>
+</div> <!-- row -->
+			</div>
+			
+			<div role="tabpanel" class="tab-pane fade" id="cat_37">
+				
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/snaps/poland-cpi-further-ris-in-core-food-prices/" class="thumbnail entry snap thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/171031-image-poland_money_320_240_70.jpg"
+					width="100%"
+					alt="Polish CPI: Further rises in core and food prices">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>31 July 2019</small><br />
+			<strong>Polish CPI: Further rises in core and food prices</strong>
+			<p class="hidden-xs"><object><a href="/snaps/">Snap</a></object><span class="vr divider"></span>CPI in Poland rose to 2.9% YoY from 2.6%, according to flash estimates. Based on...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/reports/global-debt-flows-de-risking-in-govies-seen-but-still-long-duration/" class="thumbnail entry report list small">
+	<div class="caption">
+		<strong>Global debt flows: De-risking in Govies seen, but still long duration</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/rates-asymmetry-in-the-ecbs-symmetrical-inflation-target/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Rates: The asymmetry in the ECB’s symmetrical inflation target</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/rates-why-rates-are-collapsing/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Rates: Why rates are collapsing</strong> 
+	</div>
+</a>
+	</div>
+</div> <!-- row -->
+			</div>
+			
+			<div role="tabpanel" class="tab-pane fade" id="cat_41">
+				
+
+<div class="row">
+	<div class="col-md-6" style="border-left: 2px solid #dedede;">
+		<a href="https://think.ing.com/articles/european-builders-frontrunners-in-robotics/" class="thumbnail entry article thumb_wide small">
+	<div class="row no-gutters">
+	<div class="col-xs-3 col-sm-5">
+		<span class="frame">
+			
+				<img
+					class="lozad"
+					data-src="https://think.ing.com/images/made/construction_320_240_70.jpg"
+					width="100%"
+					alt="European builders frontrunners in robotics">
+			
+		</span>
+	</div>
+	<div class="col-xs-9 col-sm-7">
+		<div class="caption">
+			<small>11 June 2019</small><br />
+			<strong>European builders frontrunners in robotics</strong>
+			<p class="hidden-xs"><object><a href="/articles/">Article</a></object><span class="vr divider"></span>The global construction sector is not&nbsp;known for innovation. But in Europe, ...</p>
+			
+		</div>
+	</div>
+	</div>
+</a>
+
+	</div>
+	<div class="col-sm-12 col-md-5" style="border-left: 2px solid #dedede;">
+
+	
+
+	<a href="https://think.ing.com/reports/elderly-care-and-housing-demand-in-the-eu/" class="thumbnail entry report list small">
+	<div class="caption">
+		<strong>Elderly care and housing demand in the EU</strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/articles/who-will-be-hit-the-most-by-a-no-deal-brexit/" class="thumbnail entry article list small">
+	<div class="caption">
+		<strong>Brexit: Which countries will be hit most by &#8216;no deal&#8217;? </strong> 
+	</div>
+</a>
+	
+
+	<a href="https://think.ing.com/opinions/bjrn-lomborg-truth-is-the-first-casualty-of-global-warming/" class="thumbnail entry opinion list small">
+	<div class="caption">
+		<strong>Bjørn Lomborg: Truth is the First Casualty of Global Warming</strong> 
+	</div>
+</a>
+	</div>
+</div> <!-- row -->
+			</div>
+			
+    </div> <!-- tab-content -->
+  </div>
+
+  </div> <!-- row -->
+  </div> <!-- container -->
+</ul> <!-- / dropdown-menu-large -->
+</li> <!-- / dropdown-large -->
+
+<li class="main visible-md visible-lg"><a href="/consumer/">Consumer</a></li>
+<li class="main visible-md visible-lg"><a href="/outside/">THINK Outside</a></li>
+
+</ul>
+
+
+</div> <!--/.nav-collapse -->
+
+<hr class="divider up">
+
+</div> <!-- container -->
+</nav>
+
+
+
+<div class="nav-padding"></div>
+
+
+
+
+	
+	
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+  
+	
+	
+	
+	
+	
+	
+	
+	
+  
+
+<div class="container">
+
+
+<div class="jumbotron">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<small><object><a href="/articles/">Article</a></object><span class="vr divider"></span>17 September 2018<span class="reading_time"><span class="vr divider"></span>Reading time 3 minutes</span></small>
+			<h1>Portugal: On track for another good year </h1>
+		</div>
+		<aside class="col-lg-2 hidden-xs">
+		<div class="row no-gutters">
+			
+			
+				<div class="col-xs-12">
+					<small>Author</small>
+				</div>
+			
+				<div class="col-xs-6 col-sm-4 col-md-3 col-lg-12">
+				
+					<a href="https://think.ing.com/about/meet-the-team/steven-trypsteen/" class="thumbnail author small">
+	<div class="row no-gutters">
+		<div class="col-xs-3">
+			
+			<span class="frame">
+				<img
+				class="lozad"
+				data-src="/images/made/Steven_Trypsteen_160_160_70.jpg"
+				width="100%"
+				alt="Steven Trypsteen "
+				>
+			</span>
+			
+		</div>
+		<div class="col-xs-8">
+			<div class="caption">
+        		
+				<strong>Steven Trypsteen </strong>
+			</div>
+		</div>
+	</div> <!-- row -->
+</a>
+
+				
+				</div>
+			
+			</div>
+		</aside>
+	</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-2">
+	
+		
+</div>
+
+<div class="col-md-8 padding-up">
+	<div class="row"> <!-- inner row -->
+	<div class="col-md-11 col-lg-10">
+
+		<div class="lead"><p>The government continues to focus on reducing public debt and the deficit however strong house price growth&nbsp;is becoming a concern.&nbsp;We expect the economy to continue to perform well in 2018, although growth will be slower than last year and forecast&nbsp;annual growth&nbsp;of 2.1% in 2018 and 1.8% in 2019</p></div>
+
+		
+		<div class="in-this-entry">
+			<a name="in-this-entry" class="anchor"></a>
+			<strong>In this article</strong>
+			<ul>
+			
+			
+		
+		
+			
+			
+			</ul>
+		</div>
+		<a id="back-to-top" href="#in-this-entry" class="back-to-top" title="Scroll to top" data-toggle="tooltip" data-placement="left" data-container="body"><i class="fa fa-angle-up fa-lg" aria-hidden="true"></i></a>
+		
+		
+
+		</div>
+
+		
+		
+		
+
+		
+		
+		<div class="col-xs-12 col-lg-11">
+			
+	<figure>
+		<div class="credit">Shutterstock</div>
+		
+		<a href="/images/made/170918-image-portugal_1200_800_80.jpg" title="170918-image-portugal.jpg" data-toggle="lightbox" data-gallery="photalbum" target="_blank" data-title="170918-image-portugal.jpg" style="background: blue;">	
+		
+			<span class="frame">
+				<picture>
+				 	
+					<source srcset="/images/made/170918-image-portugal_800_450_80.jpg" media="(min-width:600px)">
+					
+
+					
+					 <img class="img-responsive" srcset="/images/made/170918-image-portugal_480_270_70.jpg" alt="170918-image-portugal.jpg" >
+					
+				</picture>	
+			</span>
+		<figcaption>
+			<small>Portuguese Prime Minister, António Costa</small>
+		</figcaption>
+		</a>
+	</figure>
+
+
+		</div>
+
+	</div> <!-- /inner row -->
+</div> <!-- /column padding-up -->
+
+
+	<aside class="col-md-2"> <!-- side column -->
+		<div class="share">
+	<small class="hidden-xs">Share</small><br />
+	<div class="ssk-group ssk-xs">
+		<a href="" class="ssk ssk-twitter ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+		<a href="" class="ssk ssk-linkedin ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+		<a href="" class="ssk ssk-google-plus ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+		<a href="" onclick="window.open('whatsapp://send?text=' + encodeURIComponent( '' ) + ' ' + encodeURIComponent( '' )); return false;" class="ssk ssk-whatsapp ssk-rounded " data-url="" data-text="" rel="nofollow"></a>
+		<a href="" class="ssk ssk-email ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+	</div>
+</div>
+		<a href="/downloads/pdf/article/eurozone-portugal-economy-on-track-for-another-good-year" class="side_link download_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><p><strong>Download article as PDF</strong></p></a>
+		
+		<div class="sign-up-newsletter" data-spy="affix" data-offset-top="344" data-offset-bottom="1400">
+	<a class="close-sign-up-newsletter"><i id="closeSignUp" class="fa fa-times" aria-hidden="true"></i></a>
+	<h3>Newsletter</h3>
+	<p>Stay up to date with all of ING’s latest economic and financial analysis.</p>
+	<a href="https://think.ing.com/sign-up/" class="btn btn-primary">Subscribe to THINK</a>
+</div>
+
+	</aside> <!-- side column -->
+
+</div> <!-- /row -->
+
+<section class="content"> <!-- Content Builder -->
+
+		<a name="a1" class="anchor"></a>
+		<div class="row"><div class="col-md-7 col-md-offset-2">	<div>		<h4>			 </h4>		<p>The discussion about the 2019 budget is ongoing, but it seems the Portuguese government continues to focus on limiting the budget deficit and public debt.&nbsp;</p>
+
+<p>The prime minister Ant&oacute;nio Costa recently said the country should continue to do this to protect itself from external risks, such as a further escalation of the US-China trade war. In 2017, the Portuguese government debt in terms of GDP was the third highest in the Eurozone (125.7%), after Italy (131.8%) and Greece (178.6%). Costa recently said that the aim for 2019 is a deficit of 0.2% of GDP, which is even lower than last year&rsquo;s 0.9% excluding the one-offs such as the recapitalisation of the public bank Caixa Geral de Dep&oacute;sitos.</p>
+
+<p>The draft budget is expected to be given to the parliament and the European Commission by&nbsp;15th of October, after which it will&nbsp;be discussed in parliament, while the vote on the bill would take place at the end of November.</p>
+
+<blockquote>
+<p>In 2017, the Portuguese government debt in terms of GDP was the third highest in the Eurozone (125.7%), after Italy (131.8%) and Greece (178.6%)</p>
+</blockquote>
+
+<p>In the second quarter, the economy grew by 2.3% year on year, compared to 2.1% in the first quarter. Like the first quarter, net exports contributed negatively to growth, but domestic demand, and in particular consumption and investment, more than compensated. Consumption remains supported by a strong labour market. The unemployment rate continues to drop sharply and reached 6.8% in July. Employment growth has been declining since the beginning of the&nbsp;year but managed to stay above 2%. Soft data, such as consumer confidence and the Economic Sentiment Indicator (ESI) remain at high levels.</p>
+
+<blockquote>
+<p>The unemployment rate continues to drop sharply and reached 6.8% in July</p>
+</blockquote>
+
+<p>One issue that gets more and more attention is the sharp increase&nbsp;in house prices, which have been accelerating since early 2015 and reached 12.2% in the first quarter of 2018. This is almost twice as fast than&nbsp;Spain and three times as fast as the Eurozone.&nbsp;The strong growth rate is caused by surging domestic and foreign demand, while supply cannot keep up.</p>
+
+<p>The government could take some measures in its 2019 budget to alleviate the pressure, for example curbing foreign demand by adjusted programs such as the golden visa and the non-habitual regime. However, the prime minister has recently announced that people who return to Portugal in 2019 and 2020 could get&nbsp;a reduction in income tax and discounts on their return trip and&nbsp;housing, which is likely to further exacerbate the problem.</p>	</div></div></div> <!-- row -->
+	
+		<div class="row">
+<div class="col-md-7 col-md-offset-2 chart">
+
+  
+
+		<h4>
+			 House price growth accelerates </h4>
+		
+
+		
+		<figure>
+		<a href="https://think.ing.com/uploads/charts/_w1200/Portugal_chart.png" title="Portugal_chart.png" data-toggle="lightbox" data-gallery="photalbum"  target="_blank" data-title="Portugal_chart.png" data-footer="Eurostat - ">
+			<picture>
+        
+          <source srcset="/uploads/charts/_w800/Portugal_chart.png" media="(min-width: 800px)">
+        
+				<img class="img-responsive" srcset="/uploads/charts/_w480/Portugal_chart.png" alt="Eurostat ">
+			</picture>
+		</a>	
+		<figcaption>
+			<small class="chart_credit">Eurostat</small><br />
+			
+		</figcaption>
+
+		</figure>
+		
+
+
+
+	</div>
+
+</div> <!-- row -->
+	
+		<a name="a2" class="anchor"></a>
+		<div class="row"><div class="col-md-7 col-md-offset-2">	<div class="insert">		<h4>			 </h4>		<p>We expect the Portuguese economy to continue performing well in 2018, although growth will be slower than last year. We forecast an annual growth rate of 2.1% in 2018 and 1.8% in 2019.</p>	</div></div></div> <!-- row -->
+	
+</section> <!-- / Content Builder -->
+
+
+
+<div class="row">
+<div class="col-md-7 col-md-offset-2">
+
+	<a href="https://think.ing.com/bundles/eurozone-quarterly/" class="thumbnail related_article">
+		<div class="row no-gutters">
+			<div class="col-xs-12">
+				<div class="caption" style="padding-left: 0;">
+					<p>This article is part of</p>
+					<h3>ING&#8217;s Eurozone Quarterly: A late-cycle economy?</h3>
+					<small><i class="fa fa-angle-right"></i> &nbsp;View 13 articles</small>
+				</div>
+			</div>
+		</div>
+	</a>
+	
+	</div>
+</div> <!-- row -->
+
+<div class="row">
+	<div class="col-md-7 col-md-offset-2">
+		<div class="tags">
+  <small>Tags</small><br />
+
+     <a href="https://think.ing.com/tags/tag/Portugal/" class="tag">Portugal</a>
+
+     <a href="https://think.ing.com/tags/tag/Eurozone+Quarterly/" class="tag">Eurozone Quarterly</a>
+</div>
+		<div class="share">
+	<small class="hidden-xs">Share</small><br />
+	<div class="ssk-group ssk-xs">
+		<a href="" class="ssk ssk-twitter ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+		<a href="" class="ssk ssk-linkedin ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+		<a href="" class="ssk ssk-google-plus ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+		<a href="" onclick="window.open('whatsapp://send?text=' + encodeURIComponent( '' ) + ' ' + encodeURIComponent( '' )); return false;" class="ssk ssk-whatsapp ssk-rounded " data-url="" data-text="" rel="nofollow"></a>
+		<a href="" class="ssk ssk-email ssk-rounded" data-url="" data-text="" rel="nofollow"></a>
+	</div>
+</div>
+		<a href="/downloads/pdf/article/eurozone-portugal-economy-on-track-for-another-good-year" class="side_link download_pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><p><strong>Download article as PDF</strong></p></a>
+	</div>
+</div> <!-- row -->
+
+</div> <!-- container -->
+
+<footer class="container-fluid entry-footer">
+<div class="container">
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-md-offset-2">
+
+		<div class="row">
+		
+		
+			<div class="col-xs-12">
+				<h3>Author</h3>
+			</div>
+		
+			<div class="col-xs-7 col-sm-4 col-lg-12">
+				<a href="https://think.ing.com/about/meet-the-team/steven-trypsteen/" class="thumbnail author medium">
+	<div class="row no-gutters">
+		<div class="col-xs-4 col-sm-12 col-md-12 col-lg-2 hidden-xs">
+			<span class="frame">
+				<img
+				class="lozad"
+				data-src="/images/made/Steven_Trypsteen_160_160_70.jpg"
+				width="100%"
+				alt="Steven Trypsteen "
+				>
+			</span>
+		</div>
+		<div class="col-xs-12 col-lg-8">
+     		<div class="caption">
+        		
+				<strong>Steven Trypsteen </strong>
+				<p>Economist, Spain and Portugal </p>
+			</div>
+		</div>
+	</div> <!-- row -->
+</a>
+
+			</div>
+			
+			
+		
+    </div>
+
+  </div>
+  <div class="col-sm-6 col-md-5 col-md-offset-1 hidden-xs">
+		<div class="sign-up-newsletter">
+			<h3>Sign up</h3>
+			<p>Stay up to date with all of ING’s latest economic and financial analysis.</p>
+			<a href="https://think.ing.com/sign-up/" class="btn btn-primary btn-lg">Subscribe to THINK</a>
+		</div>
+  </div>
+  
+	<div class="col-sm-12 col-md-10 col-md-offset-2" style="margin-top: 1em;">
+		<strong class="text-muted">Content Disclaimer</strong><br />
+<small>This publication has been prepared by ING solely for information purposes irrespective of a particular user's means, financial situation or investment objectives. The information does not constitute investment recommendation, and nor is it investment, legal or tax advice or an offer or solicitation to purchase or sell any financial instrument. <a href="/content-disclaimer/">Read more</a></small>
+	</div>
+  
+</div> <!-- row -->
+</div>
+</footer>
+
+
+	
+		
+
+
+<div class="container tag_related_slick_slider_wrapper">
+	<div class="row">
+		<div class="col-xs-12 col-xs-offset-1 col-sm-offset-1 col-md-8 col-md-offset-2">
+			<h2>Related</h2>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+			<div class="slider tag_related_slick_slider">
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/portugal-losing-momentum/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170119-image-portugal_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Portugal: Losing momentum"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 January 2019</small><br />
+          		<strong>Portugal: Losing momentum</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/portugal-economy-some-weakening-after-a-strong-cyclical-push/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170518-image-portugal_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Portugal: Some weakening after a strong cyclical push"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 May 2018</small><br />
+          		<strong>Portugal: Some weakening after a strong cyclical push</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/portugal-growth-remains-decent-but-political-risks-remain/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/port_pm_editorial_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Portugal: Growth remains decent, but political risks remain"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>26 June 2019</small><br />
+          		<strong>Portugal: Growth remains decent, but political risks remain</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/eurozone-belgium-economy-an-election-year-in-sight/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170918-image-belgium_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Belgium: An election year in sight"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 September 2018</small><br />
+          		<strong>Belgium: An election year in sight</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/portugal-riding-the-growth-wave/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/301117-image-portugal_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Portugal: Riding the growth wave "
+                >
+          	</span>
+          	<div class="caption">
+          		<small>18 January 2018</small><br />
+          		<strong>Portugal: Riding the growth wave </strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/austria-crisis-what-crisis/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170119-image-austria_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Austria: Crisis ...what crisis?"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 January 2019</small><br />
+          		<strong>Austria: Crisis ...what crisis?</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/eurozone-mixed-feelings/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170518-image-eurozone_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Eurozone: Mixed feelings"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 May 2018</small><br />
+          		<strong>Eurozone: Mixed feelings</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/eurozone-finland-economy-peak-growth/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170918-image-finland_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Finland: Peak growth?"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 September 2018</small><br />
+          		<strong>Finland: Peak growth?</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/snaps/portugal-economy-ends-2017-on-a-strong-note/" class="thumbnail entry snap thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170919-image-portugal-flag_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Portugal: Economy ends 2017 on a strong note"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>14 February 2018</small><br />
+          		<strong>Portugal: Economy ends 2017 on a strong note</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/italy-still-looking-vulnerable/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/conte_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Italy: Still looking vulnerable"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 January 2019</small><br />
+          		<strong>Italy: Still looking vulnerable</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/france-enjoying-cyclical-strength/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/170512-image-macron3_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="France: Enjoying cyclical strength"
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 May 2018</small><br />
+          		<strong>France: Enjoying cyclical strength</strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			
+
+
+				<div class="slide">
+          
+          <a href="https://think.ing.com/articles/ireland-economy-hoping-and-crossing-fingers-for-a-deal/" class="thumbnail entry article thumb small">
+          
+
+                <span class="frame">
+          		<img
+                class="lozad"
+                data-src="https://think.ing.com/images/made/130918-image-ireland-brexit_320_240_70.jpg"
+                src="/uploads/hero/_w320/placeholder-lion2.jpg"
+                width="100%"
+                alt="Ireland: Fingers crossed for a deal "
+                >
+          	</span>
+          	<div class="caption">
+          		<small>17 September 2018</small><br />
+          		<strong>Ireland: Fingers crossed for a deal </strong>
+          		
+          	</div>
+
+          
+          </a>
+				</div>
+			</div>
+		</div>
+	</div> <!-- row -->
+</div>
+
+
+	
+
+
+
+<footer class="container-fluid footer">
+<div class="navbar">
+<div class="container">
+
+
+    <div class="row">
+      <div class="col-xs-4 col-sm-2">
+		<h3>Go to</h3>
+		<ul class="nav navbar-nav">
+          <li><a href="/about/about-us/">About us</a></li>
+          <li><a href="/about/meet-the-team/">Meet the team</a></li>
+          <li><a href="/bundles/">Bundles</a></li>
+          <li><a href="/forecasts/">Forecasts</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-2">
+		<h3>Insights</h3>
+        <ul class="nav navbar-nav">
+          <li><a href="/outside/">THINK Outside</a></li>
+          <li><a href="/about/external-authors/">External authors</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-2">
+			<div class="social">
+			<h3>Follow us</h3>
+			<ul class="nav navbar-nav">
+				<li><a href="https://twitter.com/ing_economics" target="_blank" rel="nofollow"><span class="fa-stack fa"><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span> Twitter</a></li>
+				<li><a href="https://www.linkedin.com/company/33200469/admin/" target="_blank" rel="nofollow"><span class="fa-stack fa"><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></span> LinkedIn</a></li>
+				<li><a href="https://plus.google.com/116082581105003453691" target="_blank" rel="nofollow"><span class="fa-stack fa"><i class="fa fa-google-plus fa-stack-1x fa-inverse"></i></span> Google Plus</a></li>
+				<li><a href="https://www.youtube.com/channel/UCpw_YoZWMaKkNQv0T_Kr67A/" target="_blank" rel="nofollow"><span class="fa-stack fa"><i class="fa fa-youtube fa-stack-1x fa-inverse"></i></span> YouTube</a></li>
+				<li><a href="https://think.ing.com/rss/" target="_blank" rel="nofollow"><span class="fa-stack fa"><i class="fa fa-rss fa-stack-1x fa-inverse"></i></span> RSS</a></li>
+			</ul>
+			</div>
+      </div>
+		<div class="col-sm-2">
+			<div class="sign-up-newsletter">
+				<h3>Stay up-to-date</h3>
+				<a href="https://think.ing.com/sign-up/" class="btn btn-primary btn-lg">Subscribe to THINK</a>
+			</div>
+		</div>
+		<div class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2">
+			<div class="mifid">
+			<small>If you are MiFID classified as a professional client and want more in depth financial markets analysis, visit our research website: <br class="visible-lg" /></small> <a href="https://research.ing.com/" target="_blank"><strong>research.ing.com</strong></a>
+			</div>
+		</div>
+	
+	<div class="col-xs-12 closing-footer">
+	    <hr>
+		<div class="row">
+			<div class="col-md-8" style="display: inline-block;">
+        <ul class="nav navbar-nav">
+          <li><a href="/about/disclaimer/">Disclaimer</a></li>
+          <li><a href="/about/terms-of-use/">Terms of use</a></li>
+          <li><a href="/about/security/">Security</a></li>
+          <li><a href="/about/privacy-statement/">Privacy statement</a></li>
+          <li><a href="/about/cookie-statement/">Cookie statement</a></li>
+        </ul>
+			</div>
+			<div class="col-md-4 text-right">
+    		<small>® 2019 ING Bank N.V.<span class="vr divider"></span>All rights reserved</small>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- row -->
+</div> <!-- container -->
+</div> <!-- navbar -->
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://think.ing.com/cache/3e22a321d4297c4a4ba5e023e59f85a7c54e5cc2.1564656550.js"></script>
+<script src="/js/infinite-content.js"></script>
+<script src="/js/analytic_pdf.js"></script>
+
+	<script src="/js/signup-newsletter.js"></script>
+
+
+
+
+	
+		
+	
+
+
+
+<!-- cookie wall -->
+
+  
+
+
+<script type="text/javascript">
+	function initVars() {
+		var ckBtn = document.querySelectorAll(".ck")
+
+		ckBtn.forEach(btn => {
+			btn.addEventListener('click', acceptCookie, false)
+		})
+
+		ckBtn.forEach(btn => {
+			btn.addEventListener('click', removeJunk, false)
+		})
+	}
+
+	document.addEventListener('DOMContentLoaded', initVars, false)
+	document.addEventListener('DOMContentLoaded', checkLocal, false)
+
+
+	/**
+	***	@description: This function "sets" the cookies by GETting (fetch) a url in the background
+	*/
+	function acceptCookie() {
+		event.preventDefault()
+		var ckUri = 'https://think.ing.com/accept-cookies'
+
+
+		fetch(ckUri)
+			.then(removeJunk)
+			.then(setLocal)
+			.catch(err => console.error(err))
+	}
+
+	function checkLocal() {
+		var localStore = localStorage.getItem('seenCookies')
+		if (localStore) {removeJunk} else {
+			$('#cookie_consent_modal').modal({
+				backdrop: 'static',
+				keyboard: false
+			})
+		}
+	}
+
+	function removeJunk() {
+		var cookieModal = document.querySelector("#cookie_consent_modal")
+		var cookieBar = document.querySelector(".cookie-bar")
+    setLocal()
+
+		$('#cookie_consent_modal').modal('toggle')
+
+		cookieModal ? cookieModal.remove() : null
+		cookieBar ? cookieBar.remove() : null
+	}
+
+	function setLocal() {
+		localStorage.setItem("seenCookies", "yes")
+	}
+</script>
+
+
+
+	
+	<div class="modal cookie_consent fade" id="cookie_consent_modal" tabindex="-1" role="dialog" aria-labelledby="cookie_consent_modal_label" aria-hidden="true">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title" id="cookie_consent_modal_label">
+					<img src="/uploads/general/logo.hd.png" alt="ING Economic and Financial Analysis" width="130">
+					<div class="pull-right"><strong>THINK</strong> Economic and Financial Analysis</div>
+				</div>
+			</div>
+			<div class="modal-body">
+				<p class="title">Before you go any further...</p>
+				<p>...we are obliged to ask your permission before placing any cookies on your computer. This website uses cookies to make your browsing experience more efficient and enjoyable.</p>
+				<p class="text-right"><a href="/about/cookie-statement/" >More about cookies ></a></p>
+			</div>
+			<div class="modal-footer">
+				<a href="/accept-cookies?redirect=https://think.ing.com/articles/eurozone-portugal-economy-on-track-for-another-good-year" rel="nofollow" class="btn btn-primary ck" role="button">Allow cookies</a>
+				<!-- <a href="/accept-cookies?redirect=https://think.ing.com/articles/eurozone-portugal-economy-on-track-for-another-good-year" rel="nofollow" class="btn btn-primary" role="button">Allow cookies</a> -->
+			</div>
+		</div>
+	</div>
+	</div>
+
+	
+
+
+
+
+
+
+<!-- Twitter universal website tag code -->
+<script>
+	!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+	a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+	// Insert Twitter Pixel ID and Standard Event data below
+	twq('init','ny1u3');
+	twq('track','PageView');
+</script>
+<!-- End Twitter universal website tag code -->
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"0f426ac7a2","applicationID":"83303489","transactionName":"ZFJaZhEFWUEAUkQPXF0Ye0cQEFhfTlReEkFaUksdAhZDWwJdVQ==","queueTime":0,"applicationTime":1203,"atts":"SBVNEFkfSh5DUBJcSE5K","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

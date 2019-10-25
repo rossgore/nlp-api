@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US" prefix="og: http://ogp.me/ns#">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width" />
+<title>Report to Congress on Taiwan Political, Security Issues - USNI News</title>
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://news.usni.org/xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://news.usni.org/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" type="text/javascript">//<![CDATA[
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+
+	var gtm4wp_scrollerscript_debugmode         = false;
+	var gtm4wp_scrollerscript_callbacktime      = 100;
+	var gtm4wp_scrollerscript_readerlocation    = 150;
+	var gtm4wp_scrollerscript_contentelementid  = "content";
+	var gtm4wp_scrollerscript_scannertime       = 60;
+//]]>
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><script>window._wca = window._wca || [];</script>
+
+<!-- This site is optimized with the Yoast SEO plugin v10.1.3 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Report to Congress on Taiwan Political, Security Issues - USNI News" />
+<meta property="og:description" content="The following is the June 26, 2019 Congressional Research Service In Focus report, Taiwan: Select Political and Security Issues. From the report Taiwan, which officially calls itself the Republic of China (ROC), is an island democracy of 23.6 million people located across the Taiwan Strait from mainland China. Since January 1, 1979, U.S.-Taiwan relations have &hellip;" />
+<meta property="og:url" content="https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues" />
+<meta property="og:site_name" content="USNI News" />
+<meta property="article:publisher" content="https://www.facebook.com/NavalInstitute" />
+<meta property="article:tag" content="China" />
+<meta property="article:tag" content="Taiwan" />
+<meta property="article:section" content="Documents" />
+<meta property="article:published_time" content="2019-06-27T14:42:01+00:00" />
+<meta property="article:modified_time" content="2019-06-27T14:42:02+00:00" />
+<meta property="og:updated_time" content="2019-06-27T14:42:02+00:00" />
+<meta property="og:image" content="https://news.usni.org/wp-content/uploads/2015/11/Taiwan2.jpg" />
+<meta property="og:image:secure_url" content="https://news.usni.org/wp-content/uploads/2015/11/Taiwan2.jpg" />
+<meta property="og:image:width" content="759" />
+<meta property="og:image:height" content="508" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="The following is the June 26, 2019 Congressional Research Service In Focus report, Taiwan: Select Political and Security Issues. From the report Taiwan, which officially calls itself the Republic of China (ROC), is an island democracy of 23.6 million people located across the Taiwan Strait from mainland China. Since January 1, 1979, U.S.-Taiwan relations have [&hellip;]" />
+<meta name="twitter:title" content="Report to Congress on Taiwan Political, Security Issues - USNI News" />
+<meta name="twitter:site" content="@USNINews" />
+<meta name="twitter:image" content="https://news.usni.org/wp-content/uploads/2015/11/Taiwan2.jpg" />
+<meta name="twitter:creator" content="@USNINews" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="USNI News &raquo; Feed" href="https://news.usni.org/feed" />
+<link rel="alternate" type="application/rss+xml" title="USNI News &raquo; Comments Feed" href="https://news.usni.org/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="USNI News &raquo; Report to Congress on Taiwan Political, Security Issues Comments Feed" href="https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues/feed" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/news.usni.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+			<style type="text/css">
+				</style>
+	<link rel='stylesheet' id='flick-css'  href='https://news.usni.org/wp-content/plugins/mailchimp//css/flick/flick.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='mailchimpSF_main_css-css'  href='https://news.usni.org/?mcsf_action=main_css&#038;ver=5.1.1' type='text/css' media='all' />
+<!--[if IE]>
+<link rel='stylesheet' id='mailchimpSF_ie_css-css'  href='https://news.usni.org/wp-content/plugins/mailchimp/css/ie.css?ver=5.1.1' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='wp-block-library-css'  href='https://news.usni.org/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='st-widget-css'  href='https://news.usni.org/wp-content/plugins/share-this/css/style.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='utch-style-css'  href='https://news.usni.org/wp-content/plugins/ut-common-header/public/css/style.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-layout-css'  href='https://news.usni.org/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.5.7' type='text/css' media='all' />
+<style id='woocommerce-layout-inline-css' type='text/css'>
+
+	.infinite-scroll .woocommerce-pagination {
+		display: none;
+	}
+</style>
+<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://news.usni.org/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.5.7' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css'  href='https://news.usni.org/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.5.7' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='stylesheet' id='cc-fragmention-css'  href='https://news.usni.org/wp-content/plugins/wp-fragmention/assets/css/fragmention.css?ver=0.1.4' type='text/css' media='all' />
+<link rel='stylesheet' id='give-styles-css'  href='https://news.usni.org/wp-content/plugins/give/assets/dist/css/give.css?ver=2.4.4' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='https://news.usni.org/wp-content/themes/usninews/style.css?ver=5.1.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentytwelve-ie-css'  href='https://news.usni.org/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='jetpack_css-css'  href='https://news.usni.org/wp-content/plugins/jetpack/css/jetpack.css?ver=7.2.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-paginate-css'  href='https://news.usni.org/wp-content/plugins/wp-paginate/css/wp-paginate.css?ver=2.0.5' type='text/css' media='screen' />
+<script type='text/javascript' src='https://news.usni.org/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/mailchimp//js/scrollTo.js?ver=1.5.7'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-includes/js/jquery/jquery.form.min.js?ver=4.2.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mailchimpSF = {"ajax_url":"https:\/\/news.usni.org\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/mailchimp//js/mailchimp.js?ver=1.5.7'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/mailchimp//js/datepicker.js?ver=5.1.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/jetpack/_inc/build/related-posts/related-posts.min.js?ver=20190204'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/wp-fragmention/assets/js/fragmention.min.js?ver=0.1.4'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/wp-fragmention/assets/js/highlighter.js?ver=0.1.4'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/give/assets/dist/js/babel-polyfill.js?ver=2.4.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var give_global_vars = {"ajaxurl":"https:\/\/news.usni.org\/wp-admin\/admin-ajax.php","checkout_nonce":"418604a800","currency":"USD","currency_sign":"$","currency_pos":"before","thousands_separator":",","decimal_separator":".","no_gateway":"Please select a payment method.","bad_minimum":"The minimum custom donation amount for this form is","bad_maximum":"The maximum custom donation amount for this form is","general_loading":"Loading...","purchase_loading":"Please Wait...","number_decimals":"0","give_version":"2.4.4","magnific_options":{"main_class":"give-modal","close_on_bg_click":false},"form_translation":{"payment-mode":"Please select payment mode.","give_first":"Please enter your first name.","give_email":"Please enter a valid email address.","give_user_login":"Invalid email address or username.","give_user_pass":"Enter a password.","give_user_pass_confirm":"Enter the password confirmation.","give_agree_to_terms":"You must agree to the terms and conditions."},"confirm_email_sent_message":"Please check your email and click on the link to access your complete donation history.","ajax_vars":{"ajaxurl":"https:\/\/news.usni.org\/wp-admin\/admin-ajax.php","ajaxNonce":"cbb026b10d","loading":"Loading","select_option":"Please select an option","default_gateway":"paypal","permalinks":"1","number_decimals":0},"cookie_hash":"48b188e891fd7532bc166ed8eb185735","session_nonce_cookie_name":"wp-give_session_reset_nonce_48b188e891fd7532bc166ed8eb185735","session_cookie_name":"wp-give_session_48b188e891fd7532bc166ed8eb185735","delete_session_nonce_cookie":"0"};
+var giveApiSettings = {"root":"https:\/\/news.usni.org\/wp-json\/give-api\/v2\/","rest_base":"give-api\/v2"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/give/assets/dist/js/give.js?ver=2.4.4'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-outbound-click-tracker.js?ver=1.9.2'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-download-tracker.js?ver=1.9.2'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-email-link-tracker.js?ver=1.9.2'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1.9.2'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-social-tracker.js?ver=1.9.2'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/duracelltomi-google-tag-manager/js/analytics-talk-content-tracking.js?ver=1.9.2'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/themes/usninews/js/membership.js?ver=5.1.1'></script>
+<link rel='https://api.w.org/' href='https://news.usni.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://news.usni.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://news.usni.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.1" />
+<meta name="generator" content="WooCommerce 3.5.7" />
+<link rel='shortlink' href='https://news.usni.org/?p=67541' />
+<link rel="alternate" type="application/json+oembed" href="https://news.usni.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.usni.org%2F2019%2F06%2F27%2Freport-to-congress-on-taiwan-political-security-issues" />
+<link rel="alternate" type="text/xml+oembed" href="https://news.usni.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnews.usni.org%2F2019%2F06%2F27%2Freport-to-congress-on-taiwan-political-security-issues&#038;format=xml" />
+<meta name="generator" content="Give v2.4.4" />
+<script type="text/javascript">
+        jQuery(function($) {
+            $('.date-pick').each(function() {
+                var format = $(this).data('format') || 'mm/dd/yyyy';
+                format = format.replace(/yyyy/i, 'yy');
+                $(this).datepicker({
+                    autoFocusNextInput: true,
+                    constrainInput: false,
+                    changeMonth: true,
+                    changeYear: true,
+                    beforeShow: function(input, inst) { $('#ui-datepicker-div').addClass('show'); },
+                    dateFormat: format.toLowerCase(),
+                });
+            });
+            d = new Date();
+            $('.birthdate-pick').each(function() {
+                var format = $(this).data('format') || 'mm/dd';
+                format = format.replace(/yyyy/i, 'yy');
+                $(this).datepicker({
+                    autoFocusNextInput: true,
+                    constrainInput: false,
+                    changeMonth: true,
+                    changeYear: false,
+                    minDate: new Date(d.getFullYear(), 1-1, 1),
+                    maxDate: new Date(d.getFullYear(), 12-1, 31),
+                    beforeShow: function(input, inst) { $('#ui-datepicker-div').removeClass('show'); },
+                    dateFormat: format.toLowerCase(),
+                });
+
+            });
+
+        });
+    </script>
+<script charset="utf-8" type="text/javascript">var switchTo5x=true;</script><script charset="utf-8" type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'wp.a3de69f8-2897-4c77-8e32-08f55603821b'});var st_type='wordpress3.5.1';</script>
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" type="text/javascript">//<![CDATA[
+var google_tag_params = {"pageTitle":"Report to Congress on Taiwan Political, Security Issues - USNI News","pagePostType":"post","pagePostType2":"single-post","pageCategory":["budget-industry","china","documents","foreign-forces"],"pageAttributes":["china","taiwan"],"pagePostAuthor":"US Naval Institute Staff","pagePostDate":"June 27, 2019","pagePostDateYear":"2019","pagePostDateMonth":"06","pagePostDateDay":"27","browserName":"","browserVersion":"","browserEngineName":"","browserEngineVersion":"","osName":"","osVersion":"","deviceType":"","deviceManufacturer":"","deviceModel":""};
+	jQuery( function() {
+		gtm4wp_track_downloads( "pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar,gz,tar" );
+	});
+	dataLayer.push({"visitorLoginState":"logged-out","visitorType":"visitor-logged-out","pageTitle":"Report to Congress on Taiwan Political, Security Issues - USNI News","pagePostType":"post","pagePostType2":"single-post","pageCategory":["budget-industry","china","documents","foreign-forces"],"pageAttributes":["china","taiwan"],"pagePostAuthor":"US Naval Institute Staff","pagePostDate":"June 27, 2019","pagePostDateYear":"2019","pagePostDateMonth":"06","pagePostDateDay":"27","browserName":"","browserVersion":"","browserEngineName":"","browserEngineVersion":"","osName":"","osVersion":"","deviceType":"","deviceManufacturer":"","deviceModel":"","google_tag_params":window.google_tag_params});//]]>
+</script>
+<script data-cfasync="false">//<![CDATA[
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W86BDD');//]]>
+</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<style type='text/css'>img#wpstats{display:none}</style>	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<link rel="icon" href="https://news.usni.org/wp-content/uploads/2015/02/usni-emblem-4c-54dbd385v1_site_icon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://news.usni.org/wp-content/uploads/2015/02/usni-emblem-4c-54dbd385v1_site_icon-256x256.png" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://news.usni.org/wp-content/uploads/2015/02/usni-emblem-4c-54dbd385v1_site_icon-256x256.png" />
+<meta name="msapplication-TileImage" content="https://news.usni.org/wp-content/uploads/2015/02/usni-emblem-4c-54dbd385v1_site_icon-512x512.png" />
+<script async src='https://stats.wp.com/s-201931.js'></script>
+    <!-- START GOOGLE DFP CODE  -->
+    <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+    <script>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+    </script>
+
+    <script>
+      googletag.cmd.push(function() {
+
+        var topLeaderboardSizeMapping = googletag.sizeMapping().
+        addSize([1200, 0], [[300,250],[336,280],[728,90],[468,60],[234,60],[120,240],[970,90]]).
+        addSize([800, 0], [[300,250],[336,280],[728,90],[468,60],[234,60],[120,240]]).
+        addSize([0, 0], [[300,250],[336,280],[320,50],[320,100],[234,60],[120,240]]).
+        build();
+        var topBannerSizeMapping = googletag.sizeMapping().
+        addSize([1200, 0], [[300,250],[336,280],[728,90],[468,60],[234,60],[120,240]]).
+        addSize([800, 0], [[300,250],[336,280],[468,60],[234,60],[120,240]]).
+        addSize([0, 0], [[300,250],[336,280],[320,50],[320,100],[234,60],[120,240]]).
+        build();
+        var sidebarSizeMapping = googletag.sizeMapping().
+        addSize([1200, 0], [[300,250],[300,600],[234,60],[120,600],[120,240],[160,600]]).
+        addSize([800, 0], [[300,250],[234,60],[120,240]]).
+        addSize([0, 0], [[300,250],[336,280],[320,50],[320,100],[234,60],[120,240]]).
+        build();
+
+        googletag.defineSlot('/21810829768/news_usni-site-top_leaderboard', [[234, 60], [728, 90], [300, 250], [120, 240], [320, 100], [320, 50], [970, 90], [468, 60], [336, 280]], 'div-gpt-ad-1559939771238-0').defineSizeMapping(topLeaderboardSizeMapping).addService(googletag.pubads());
+        googletag.defineSlot('/21810829768/news_usni-site-top_banner', [[120, 240], [320, 100], [320, 50], [468, 60], [300, 250], [234, 60], [336, 280], [728, 90]], 'div-gpt-ad-1559940967302-0').defineSizeMapping(topBannerSizeMapping).addService(googletag.pubads());
+        googletag.defineSlot('/21810829768/news_usni-site-sidebar_1', [[320, 100], [120, 600], [234, 60], [336, 280], [300, 600], [320, 50], [300, 250], [120, 240], [160, 600]], 'div-gpt-ad-1559941116279-0').defineSizeMapping(sidebarSizeMapping).addService(googletag.pubads());
+        googletag.defineSlot('/21810829768/news_usni-site-sidebar_2', [[320, 100], [120, 600], [234, 60], [336, 280], [300, 600], [320, 50], [300, 250], [120, 240], [160, 600]], 'div-gpt-ad-1559941295217-0').defineSizeMapping(sidebarSizeMapping).addService(googletag.pubads());
+        googletag.defineSlot('/21810829768/news_usni-site-sidebar_3', [[320, 100], [120, 600], [234, 60], [336, 280], [300, 600], [320, 50], [300, 250], [120, 240], [160, 600]], 'div-gpt-ad-1559941388850-0').defineSizeMapping(sidebarSizeMapping).addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+      });
+    </script>
+    <!-- END GOOGLE DFP CODE -->
+</head>
+
+<body class="post-template-default single single-post postid-67541 single-format-standard woocommerce-no-js custom-font-enabled">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W86BDD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div id="wrapper">
+        <header class="header">
+        <a href="/">
+            <img class="header-logo header-logo-xs hidden-sm hidden-md hidden-lg" src="https://news.usni.org/wp-content/plugins/ut-common-header/public/images/usni_logo.png" alt="USNI News Logo">
+            <img class="header-logo header-logo-sm hidden-xs hidden-md hidden-lg" src="https://news.usni.org/wp-content/plugins/ut-common-header/public/images/usni_logo.png" alt="USNI News Logo">
+            <img class="header-logo hidden-xs hidden-sm" src="https://news.usni.org/wp-content/plugins/ut-common-header/public/images/usni_logo.png" alt="USNI News Logo">
+        </a>
+        <button class="header-menu-collapse btn btn-secondary hidden-md hidden-lg collapsed" data-toggle="collapse" data-target="#main-menu-collapse">
+            <span>Collapse</span>
+        </button>
+        <nav class="right-side-nav">
+            <a href="#" target="_blank" class="right-side-nav-donate hidden-xs hidden-sm" id="ut-donate"><span>Donate</span></a>
+            <ul class="nav navbar-nav">
+                <li><a href="https://www.usni.org/cart" class="right-side-nav-cart" id="ut-cart"><span class="hidden-xs hidden-sm">Cart</span><span id="cart-count" class="badge cart-count" style="display:none">0</span></a></li>
+                <li><a href="https://www.usni.org/user" class="right-side-nav-join" id="ut-user"><span class="hidden-xs hidden-sm" id="ut-user-text">Join or Login</span></a></li>
+            </ul>
+            <ul class="navbar-nav" id="ut-search">
+                <li>
+                    <form role="search" method="get" id="ut-searchform"
+                        action="https://news.usni.org/">
+                        <div>
+                            <label class="screen-reader-text" for="s"></label>
+                            <input type="text" placeholder="Search USNI News..." value="" name="s" id="s" />
+                            <input type="submit" id="searchsubmit"
+                                   value="Search" />
+                        </div>
+                    </form>
+                </li></ul>
+        </nav>
+        <div class="region region-menu">
+            <nav role="navigation" id="main-nav" aria-labelledby="block-mainnavigation-menu" class="main-nav">
+                <h2 class="sr-only" id="block-mainnavigation-menu">Main navigation</h2>
+
+
+                <div class="main-nav-collapse-wrapper">
+                    <ul block="block-mainnavigation" class="menu nav navbar-nav main-menu collapse" id="main-menu-collapse">
+                        <li>
+                            <a href="https://www.usni.org/about-us/mission-and-vision"  >About Us</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/join" >Membership</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/press/books" >Books &amp; Press</a>
+                        </li>
+                        <li class="active">
+                            <a href="https://news.usni.org/" class="is-active" >USNI News</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/proceedings-magazine" >Proceedings</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/naval-history-magazine" >Naval History</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/archives">Archives</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/events" >Events</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/donate">Donate</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div id="headerTop">
+            <div id="navigation" class="main navHorz">
+                <h3 class="menu-toggle" id="menuClick">News Menu</h3>
+                <h3 class="menu-toggle" id="searchClick">SEARCH</h3>
+                <a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+                <div class="menu-primary-navigation-container"><ul id="menu-primary-navigation" class="nav-menu"><li id="menu-item-1188" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1188"><a href="/">Home</a></li>
+<li id="menu-item-1487" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1487"><a href="https://news.usni.org/category/documents">Documents</a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://news.usni.org/topstories">Top Stories</a></li>
+<li id="menu-item-1489" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1489"><a href="https://news.usni.org/category/timeline">Timelines</a></li>
+<li id="menu-item-10786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10786"><a href="https://news.usni.org/advertise">Advertise</a></li>
+<li id="menu-item-67535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67535"><a href="https://news.usni.org/about">About</a></li>
+</ul></div>            </div><!-- #navigation -->
+        </div><!-- #headerTop -->
+    </header>
+
+    <header id="sticky-header" class="header">
+        <a href="/">
+            <img class="header-logo header-logo-xs hidden-sm hidden-md hidden-lg" src="https://news.usni.org/wp-content/plugins/ut-common-header/public/images/usni_logo.png" alt="USNI News Logo">
+            <img class="header-logo header-logo-sm hidden-xs hidden-md hidden-lg" src="https://news.usni.org/wp-content/plugins/ut-common-header/public/images/usni_logo.png" alt="USNI News Logo">
+            <img class="header-logo hidden-xs hidden-sm" src="https://news.usni.org/wp-content/plugins/ut-common-header/public/images/usni_logo.png" alt="USNI News Logo">
+        </a>
+        <button class="header-menu-collapse btn btn-secondary hidden-md hidden-lg collapsed" data-toggle="collapse" data-target="#main-menu-sticky-collapse">
+            <span>Collapse</span>
+        </button>
+        <nav class="right-side-nav">
+            <a href="#" target="_blank" class="right-side-nav-donate hidden-xs hidden-sm"  id="ut--donate"><span>Donate</span></a>
+            <ul class="nav navbar-nav">
+                <li><a href="#" class="right-side-nav-cart" id="ut--cart"><span class="hidden-xs hidden-sm">Cart</span><span id="cart-count-sticky" class="badge cart-count" style="display:none">0</span></a></li>
+                <li><a href="/user" class="right-side-nav-join" id="ut--user"><span class="hidden-xs hidden-sm" id="ut--user-text">Join or Login</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="region region-sticky-header">
+            <nav role="navigation" id="main-nav-sticky" aria-labelledby="block-mainnavigation-sticky-menu" class="main-nav">
+                <h2 class="sr-only" id="block-mainnavigation-sticky-menu">Main navigation (Sticky)</h2>
+                <div class="main-nav-sticky-collapse-wrapper">
+                    <ul block="block-mainnavigation-sticky" class="menu nav navbar-nav collapse" id="main-menu-sticky-collapse">
+                        <li>
+                            <a href="https://www.usni.org/about-us/mission-and-vision">About Us</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/join" >Membership</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/press/books" >Books &amp; Press</a>
+                        </li>
+                        <li class="active">
+                            <a href="https://news.usni.org/" class="is-active" >USNI News</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/proceedings-magazine" >Proceedings</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/naval-history-magazine" >Naval History</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/archives">Archives</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/events" >Events</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usni.org/donate">Donate</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div id="headerTop">
+            <div id="navigation" class="main navHorz">
+                <h3 class="menu-toggle" id="menuClick">News Menu</h3>
+                <h3 class="menu-toggle" id="searchClick">SEARCH</h3>
+                <a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+                <div class="menu-primary-navigation-container"><ul id="menu-primary-navigation-1" class="nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1188"><a href="/">Home</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1487"><a href="https://news.usni.org/category/documents">Documents</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://news.usni.org/topstories">Top Stories</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1489"><a href="https://news.usni.org/category/timeline">Timelines</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10786"><a href="https://news.usni.org/advertise">Advertise</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67535"><a href="https://news.usni.org/about">About</a></li>
+</ul></div>            </div><!-- #navigation -->
+        </div><!-- #headerTop -->
+    </header>
+    <div class="ut-wrapper"></div>
+    
+    <div id="headerBottomWrapper">
+		<div id="headerBottom">
+            <div id="headerRight">
+					<form role="search" method="get" id="searchform" class="searchform" action="https://news.usni.org/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" />
+					<input type="submit" id="searchsubmit" value="Search" />
+				</div>
+			</form>				</div>
+			</div><!-- #headerBottom -->
+		</div><!-- #headerBottomWrapper -->
+
+    <ul id="leaderboard-ad">
+        <li id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /21810829768/news_usni-site-top_leaderboard -->
+<div id='div-gpt-ad-1559939771238-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1559939771238-0'); });
+</script>
+</div></div></li>
+    </ul><!-- #leaderboard-ad -->
+<div id="bodyMain">
+
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+					<article id="post-67541" class="post-67541 post type-post status-publish format-standard has-post-thumbnail hentry category-budget-industry category-china category-documents category-foreign-forces tag-china tag-taiwan">
+				<header class="entry-header">
+			            <div id="crumbs" xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://news.usni.org/">Home</a></span> &raquo; <span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="https://news.usni.org/category/budget-industry">Budget Industry</a></span> &raquo; <span class="current">Report to Congress on Taiwan Political, Security Issues</span></div>
+            <hr style="margin:0px 0px 10px 0px;" />
+							<p><div class='usninews_sharethis'><span class='st_facebook_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='facebook'></span><span class='st_twitter_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='twitter'></span><span class='st_plusone_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='plusone'></span><span class='st_email_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='email'></span></div></p>				<hr style="margin:10px 0 20px 0px;" />
+						<h1 class="entry-title">Report to Congress on Taiwan Political, Security Issues</h1>
+            <div class="author">
+	        				</div>
+			<div class="post-date">
+				<time class="entry-date">June 27, 2019 10:42 AM</time>
+			</div>
+
+					</header><!-- .entry-header -->
+
+		                            <ul id="banner-ad">
+                    <li id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /21810829768/news_usni-site-top_banner -->
+<div id='div-gpt-ad-1559940967302-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1559940967302-0'); });
+</script>
+</div></div></li>
+                </ul><!-- #banner-ad -->
+            		<div class="entry-content">
+			<p><em>The following is the June 26, 2019 Congressional Research Service In Focus report, Taiwan: Select Political and Security Issues.</em><span id="more-67541"></span></p>
+<h2>From the report</h2>
+<p>Taiwan, which officially calls itself the Republic of China (ROC), is an island democracy of 23.6 million people located across the Taiwan Strait from mainland China.<br />
+Since January 1, 1979, U.S.-Taiwan relations have been unofficial, a consequence of the Carter Administration’s decision to establish diplomatic relations with the People’s Republic of China (PRC) and break formal diplomatic ties with self-ruled Taiwan, over which the PRC claims sovereignty. The Taiwan Relations Act (TRA, P.L. 96-8; 22 U.S.C. 3301 et seq.), enacted on April 10, 1979, provides a legal basis for this unofficial bilateral relationship. It also includes commitments related to Taiwan’s security.</p>
+<div class="DC-embed DC-embed-document DV-container"> <div style="position:relative;padding-bottom:129.42857142857142%;height:0;overflow:hidden;max-width:100%;"> <iframe src="//www.documentcloud.org/documents/6173770-Taiwan-Select-Political-and-Security-Issues-June.html?embed=true&amp;responsive=false&amp;sidebar=false" title="Taiwan: Select Political and Security Issues; June 26, 2019 (Hosted by DocumentCloud)" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;border:1px solid #aaa;border-bottom:0;box-sizing:border-box;"></iframe> </div> </div>
+<p>Download the document <a href="https://assets.documentcloud.org/documents/6173770/Taiwan-Select-Political-and-Security-Issues-June.pdf">here</a>.</p>
+<p class="no-break"><div class='usninews_sharethis'><span class='st_facebook_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='facebook'></span><span class='st_twitter_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='twitter'></span><span class='st_plusone_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='plusone'></span><span class='st_email_buttons' st_title='Report to Congress on Taiwan Political, Security Issues' st_url='https://news.usni.org/2019/06/27/report-to-congress-on-taiwan-political-security-issues' displayText='email'></span></div></p>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div>					</div><!-- .entry-content -->
+		
+		<footer class="entry-meta">
+			
+								<div class="single-post-ad">
+					<a href="https://www.usni.org/join"><img src=" https://news.usni.org/wp-content/themes/usninews/img/banner-like-reading.png" alt="Like What You've Been Reading? Get Proceedings Today"></a>
+				</div>
+				                          <div class="article-keywords"><b>Article Keywords: <a href="https://news.usni.org/tag/china" rel="tag">China</a>, <a href="https://news.usni.org/tag/taiwan" rel="tag">Taiwan</a></div>
+                          <div class="article-categories">Categories: <a href="https://news.usni.org/category/budget-industry" rel="category tag">Budget Industry</a>, <a href="https://news.usni.org/category/foreign-forces/china" rel="category tag">China</a>, <a href="https://news.usni.org/category/documents" rel="category tag">Documents</a>, <a href="https://news.usni.org/category/foreign-forces" rel="category tag">Foreign Forces</a></div>
+        
+      										
+					</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+
+				<nav class="nav-single">
+					<h3 class="assistive-text">Post navigation</h3>
+					<span class="nav-previous"><a href="https://news.usni.org/2019/06/26/u-s-naval-power-and-energy-systems-technology-development-roadmap" rel="prev"><span class="meta-nav">&larr;</span> U.S. Naval Power and Energy Systems Technology Development Roadmap</a></span>
+					<span class="nav-next"><a href="https://news.usni.org/2019/06/27/naval-test-pilot-school-adds-new-focus-on-unmanned-aircraft" rel="next">Naval Test Pilot School Adds New Focus on Unmanned Aircraft <span class="meta-nav">&rarr;</span></a></span>
+				</nav><!-- .nav-single -->
+
+				
+<div id="disqus_thread"></div>
+
+			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+  <div id="secondary" class="widget-area" role="complementary">
+    <div id="sidebarSocialMenu" class="social largeIcon">
+        <div style="padding-bottom: 20px;">
+            <a href="https://www.usni.org/join" target="_blank">
+                <img style="max-width: 100%;" src="/wp-content/themes/usninews/img/750x986_web_membership-banner.jpg" />
+            </a>
+        </div>
+
+      <ul>
+        <li><a href="https://www.facebook.com/NavalInstitute" title="Facebook" target="_blank" class="facebook">Facebook</a></li>
+        <li><a href="https://twitter.com/usninews" title="Twitter" target="_blank" class="twitter">Twitter</a></li>
+        <li><a href="https://www.linkedin.com/company/96753" title="LinkedIn" target="_blank" class="linkedin">LinkedIn</a></li>
+        <li><a href="https://news.usni.org/feed" title="RSS" target="_blank" class="rss">RSS</a></li>
+        <li><a href="https://www.youtube.com/channel/UCfC-k7f1Cd-Av-NVpuVPzmQ" title="YouTube" target="_blank" class="youtube">YouTube</a></li>
+        <li><a href="https://www.instagram.com/navalinstitute" title="Instagram" target="_blank" class="instagram">Instagram</a></li>
+        <li><a href="https://www.flickr.com/photos/usnavalinstitute" title="Flickr" target="_blank" class="flickr">Flickr</a></li>
+        <li><a href="http://www.usni.org" title="USNI" target="_blank" class="usni">USNI</a></li>
+      </ul>
+    </div>
+    <aside id="text-7" class="widget widget_text"><h3 class="widget-title">Sign up for USNI News</h3>			<div class="textwidget"><!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="//usni.us2.list-manage.com/subscribe/post?u=e971c577684d30446b18f75bf&amp;id=0dd4a1450b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <div id="mc_embed_signup_scroll">
+    <h5>Get USNI News updates delivered to your inbox</h5>
+    <div class="mc-field-group">
+      <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+      </label>
+      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"/>
+    </div>
+    <div class="mc-field-group">
+      <label for="mce-FNAME">First Name </label>
+      <input type="text" value="" placeholder="Friend of the Naval Institute" name="FNAME" class="" id="mce-FNAME"/>
+    </div>
+    <div class="mc-field-group">
+      <label for="mce-LNAME">Last Name </label>
+      <input type="text" value="" name="LNAME" class="" id="mce-LNAME"/>
+    </div>
+    <div class="mc-field-group">
+      <label for="mce-MMERGE9">Title </label>
+      <select name="MMERGE9" class="" id="mce-MMERGE9">
+        <option value="----">----</option>
+        <option value="Lieutenant">Lieutenant</option>
+        <option value="First Sergeant">First Sergeant</option>
+        <option value="Airman">Airman</option>
+        <option value="Admiral">Admiral</option>
+        <option value="Ambassador">Ambassador</option>
+        <option value="General">General</option>
+        <option value="Brother">Brother</option>
+        <option value="Constructionman">Constructionman</option>
+        <option value="Cadet">Cadet</option>
+        <option value="Captain">Captain</option>
+        <option value="Chief">Chief</option>
+        <option value="Commander">Commander</option>
+        <option value="Commodore">Commodore</option>
+        <option value="Chaplain">Chaplain</option>
+        <option value="Master Chief">Master Chief</option>
+        <option value="Chief Master Sergeant">Chief Master Sergeant</option>
+        <option value="Colonel">Colonel</option>
+        <option value="Corporal">Corporal</option>
+        <option value="Sergeant Major">Sergeant Major</option>
+        <option value="Mister">Mister</option>
+        <option value="Chief Warrant Officer">Chief Warrant Officer</option>
+        <option value="Diplom-Ingenieur">Diplom-Ingenieur</option>
+        <option value="Dr.">Dr.</option>
+        <option value="Ensign">Ensign</option>
+        <option value="Fireman">Fireman</option>
+        <option value="First Admiral">First Admiral</option>
+        <option value="Father">Father</option>
+        <option value="Fleet Master Chief">Fleet Master Chief</option>
+        <option value="Force Master Chief">Force Master Chief</option>
+        <option value="Guarda-Marinha">Guarda-Marinha</option>
+        <option value="Gunnery Sergeant">Gunnery Sergeant</option>
+        <option value="Hospitalman">Hospitalman</option>
+        <option value="The Honorable">The Honorable</option>
+        <option value="Judge">Judge</option>
+        <option value="Justice">Justice</option>
+        <option value="Mayor">Mayor</option>
+        <option value="Mr.">Mr.</option>
+        <option value="Ms.">Ms.</option>
+        <option value="Secretary">Secretary</option>
+        <option value="Senator">Senator</option>
+        <option value="Kaptain">Kaptain</option>
+        <option value="Lance Corporal">Lance Corporal</option>
+        <option value="Lord">Lord</option>
+        <option value="Major">Major</option>
+        <option value="Master">Master</option>
+        <option value="MCPL">MCPL</option>
+        <option value="Master Gunnery Sergeant">Master Gunnery Sergeant</option>
+        <option value="Midshipman">Midshipman</option>
+        <option value="Miss">Miss</option>
+        <option value="Machinists Mate">Machinists Mate</option>
+        <option value="Mrs.">Mrs.</option>
+        <option value="Master Sergeant">Master Sergeant</option>
+        <option value="Sergeant">Sergeant</option>
+        <option value="Private">Private</option>
+        <option value="Petty Officer">Petty Officer</option>
+        <option value="Professor">Professor</option>
+        <option value="Rabbi">Rabbi</option>
+        <option value="Reverend">Reverend</option>
+        <option value="Seaman">Seaman</option>
+        <option value="Senior Chief">Senior Chief</option>
+        <option value="Sir">Sir</option>
+        <option value="Sister">Sister</option>
+        <option value="Specialist">Specialist</option>
+        <option value="Squadron Leader">Squadron Leader</option>
+        <option value="Staff Sergeant">Staff Sergeant</option>
+        <option value="Wing Commander">Wing Commander</option>
+        <option value="Warrant Officer">Warrant Officer</option>
+      </select>
+    </div>
+    <div class="mc-field-group" style="display: none">
+      <label for="mce-MMERGE8"></label>
+      <input name="MMERGE8" id="mce-MMERGE8" type="checkbox" value="No" checked/>
+    </div>
+    <div class="mc-field-group" style="display: none">
+      <label for="mce-MMERGE4"></label>
+      <input name="MMERGE4" id="mce-MMERGE4" type="checkbox" value="No" checked/>
+    </div>
+    <div class="indicates-required"><span class="asterisk">*</span> = required field</div>
+    <div class="mc-field-group input-group">
+      <strong>Frequency </strong>
+      <ul>
+        <li>
+          <input type="checkbox" value="1" name="group[173][1]" id="mce-group[173]-173-0"/>
+          <label for="mce-group[173]-173-0">Daily</label>
+        </li>
+        <li>
+          <input type="checkbox" value="2" name="group[173][2]" id="mce-group[173]-173-1"/>
+          <label for="mce-group[173]-173-1">Weekly</label>
+        </li>
+        <li>
+          <input type="checkbox" value="16" name="group[173][16]" id="mce-group[173]-173-2"/>
+          <label for="mce-group[173]-173-2">Monthly</label>
+        </li>
+        <li>
+          <input type="checkbox" value="4" name="group[173][4]" id="mce-group[173]-173-3"/>
+          <label for="mce-group[173]-173-3">All</label>
+        </li>
+        <li>
+          <input type="checkbox" value="8" name="group[173][8]" id="mce-group[173]-173-4"/>
+          <label for="mce-group[173]-173-4">None</label>
+        </li>
+      </ul>
+    </div>
+    <div id="mce-responses" class="clear">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e971c577684d30446b18f75bf_0dd4a1450b" tabindex="-1" value=""/></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/></div>
+  </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+</div>
+		</aside><aside id="custom_html-4" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /21810829768/news_usni-site-sidebar_1 -->
+<div id='div-gpt-ad-1559941116279-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1559941116279-0'); });
+</script>
+</div></div></aside><aside id="custom_html-5" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /21810829768/news_usni-site-sidebar_2 -->
+<div id='div-gpt-ad-1559941295217-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1559941295217-0'); });
+</script>
+</div></div></aside><aside id="custom_html-6" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /21810829768/news_usni-site-sidebar_3 -->
+<div id='div-gpt-ad-1559941388850-0'>
+<script>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1559941388850-0'); });
+</script>
+</div></div></aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+				<li class="cat-item cat-item-4"><a href="https://news.usni.org/category/aviation" >Aviation</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://news.usni.org/category/budget-industry" >Budget Industry</a>
+</li>
+	<li class="cat-item cat-item-3294"><a href="https://news.usni.org/category/foreign-forces/china" >China</a>
+</li>
+	<li class="cat-item cat-item-363"><a href="https://news.usni.org/category/documents" >Documents</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://news.usni.org/category/education-legislation" >Education Legislation</a>
+</li>
+	<li class="cat-item cat-item-4137"><a href="https://news.usni.org/category/fleet-tracker" >Fleet Tracker</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://news.usni.org/category/foreign-forces" >Foreign Forces</a>
+</li>
+	<li class="cat-item cat-item-1653"><a href="https://news.usni.org/category/long-form" >Long Form</a>
+</li>
+	<li class="cat-item cat-item-14"><a href="https://news.usni.org/category/merchant-marine" >Merchant Marine</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="https://news.usni.org/category/military-personnel" >Military Personnel</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://news.usni.org/category/news-analysis" >News &amp; Analysis</a>
+</li>
+	<li class="cat-item cat-item-15"><a href="https://news.usni.org/category/piracy" >Piracy</a>
+</li>
+	<li class="cat-item cat-item-3293"><a href="https://news.usni.org/category/foreign-forces/russia" >Russia</a>
+</li>
+	<li class="cat-item cat-item-2576"><a href="https://news.usni.org/category/space" >Space</a>
+</li>
+	<li class="cat-item cat-item-2337"><a href="https://news.usni.org/category/special-operations-forces" >Special Operations Forces</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://news.usni.org/category/submarine-forces" >Submarine Forces</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="https://news.usni.org/category/surface-forces" >Surface Forces</a>
+</li>
+	<li class="cat-item cat-item-3345"><a href="https://news.usni.org/category/survey" >Survey</a>
+</li>
+	<li class="cat-item cat-item-3362"><a href="https://news.usni.org/category/the-basics" >The Basics</a>
+</li>
+	<li class="cat-item cat-item-368"><a href="https://news.usni.org/category/timeline" title="Timelines.">Timelines</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="https://news.usni.org/category/usaf" >U.S. Air Force</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="https://news.usni.org/category/usa" >U.S. Army</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://news.usni.org/category/uscg" >U.S. Coast Guard</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://news.usni.org/category/usmc" >U.S. Marine Corps</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="https://news.usni.org/category/usn" >U.S. Navy</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://news.usni.org/category/veterans-affairs" >Veterans Affairs</a>
+</li>
+	<li class="cat-item cat-item-3346"><a href="https://news.usni.org/category/warship" >warship</a>
+</li>
+		</ul>
+			</aside><aside id="text-6" class="widget widget_text">			<div class="textwidget"><a class="twitter-timeline" href="https://twitter.com/USNINews" data-widget-id="698070371006877696">Tweets by @USNINews</a></div>
+		</aside>  </div><!-- #secondary -->
+
+<div class="clearMe">&nbsp;</div>
+</div>
+
+<div id="footer" class="main">
+	<div id="footerTop">
+		<div id="footerNavWrapper">
+			<div id="footerNav" class="navHorz">
+				<h3 class="menu-toggle" id="menuClick-1">Menu</h3>
+				<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+				<div class="menu-primary-navigation-container"><ul id="menu-primary-navigation-2" class="nav-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1188"><a href="/">Home</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-1487"><a href="https://news.usni.org/category/documents">Documents</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="https://news.usni.org/topstories">Top Stories</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1489"><a href="https://news.usni.org/category/timeline">Timelines</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10786"><a href="https://news.usni.org/advertise">Advertise</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-67535"><a href="https://news.usni.org/about">About</a></li>
+</ul></div>			</div><!-- #footerNav -->
+			<div id="footerSocialMenu" class="social smallIcon">
+				<ul>
+					<li><a href="https://www.facebook.com/NavalInstitute" title="Facebook" class="facebook">Facebook</a></li>
+					<li><a href="https://twitter.com/usninews" title="Twitter" class="twitter">Twitter</a></li>
+					<li><a href="https://news.usni.org/feed" title="RSS" class="rss">RSS</a></li>
+					<li><a href="https://www.youtube.com/channel/UCfC-k7f1Cd-Av-NVpuVPzmQ" title="YouTube" class="youtube">YouTube</a></li>
+					<li><a href="http://www.usni.org" title="USNI" class="usni">USNI</a></li>
+				</ul>
+			</div><!-- #footerSocialMenu -->
+			<div class="clearMe">&nbsp;</div>
+		</div><!-- #footerNavWrapper -->
+	</div><!-- #footerTop -->
+	<div id="footerBottomWrapper">
+		<div id="footerBottom">
+			<div id="footerBottomLeft">
+				<a style="color: #FFFFFF; text-decoration: underline;" href="https://news.usni.org/license"><img style="border-width: 0;" alt="Creative Commons License" src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png" /><br />
+				<span class="footerBottomLeft top">&copy; 2012-2019 U.S. NAVAL INSTITUTE</a></span>
+				<span class="footerBottomLeft bottom"><a href="http://www.unleashed-technologies.com" title="www.usni.org">Powered by Unleashed Technologies</a></span>
+			</div><!-- #footerBottomLeft -->
+			<div id="footerBottomRight">
+				<div class="footerBottomRight top"><ul id="menu-footer" class="menu"><li id="menu-item-10201" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10201"><a href="http://www.usni.org/faq">FAQ</a></li>
+<li id="menu-item-10202" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10202"><a href="https://news.usni.org/staff">Staff</a></li>
+</ul></div>				<span class="footerBottomRight bottom">Member Services call 800-233-8764 or 410-268-6110</span>
+			</div><!-- #footerBottomRight -->
+			<div class="clearMe">&nbsp;</div>
+		</div><!-- #footerBottom -->
+	</div><!-- #footerBottomWrapper -->
+</div><!-- #footer -->
+
+
+</div>
+
+	<script type="text/javascript">
+		var c = document.body.className;
+		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+		document.body.className = c;
+	</script>
+	<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"usninews"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.17'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.17"},"disqusIdentifier":"67541 https:\/\/news.usni.org\/?p=67541","disqusShortname":"usninews","disqusTitle":"Report to Congress on Taiwan Political, Security Issues","disqusUrl":"https:\/\/news.usni.org\/2019\/06\/27\/report-to-congress-on-taiwan-political-security-issues","postId":"67541"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.17'></script>
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201931'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/ut-common-header/public/js/jquery.min.js'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/ut-common-header/public/js/sticky_header.js'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/ut-common-header/public/bootstrap/collapse.js'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/ut-common-header/public/bootstrap/transition.js'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/ut-common-header/public/js/ut_lib.js'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/news.usni.org\/cart","is_cart":"","cart_redirect_after_add":"yes"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.5.7'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.5.7'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_956de4194d94bb0177b25a3122cf2e82","fragment_name":"wc_fragments_956de4194d94bb0177b25a3122cf2e82"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.5.7'></script>
+<script type='text/javascript'>
+		jQuery( 'body' ).bind( 'wc_fragments_refreshed', function() {
+			jQuery( 'body' ).trigger( 'jetpack-lazy-images-load' );
+		} );
+	
+</script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/themes/usninews/js/header.js?ver=0.1.6'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-includes/js/comment-reply.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-content/themes/twentytwelve/js/navigation.js?ver=20140711'></script>
+<script type='text/javascript' src='https://news.usni.org/wp-includes/js/wp-embed.min.js?ver=5.1.1'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201931.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.2.1',blog:'52491977',post:'67541',tz:'-4',srv:'news.usni.org'} ]);
+	_stq.push([ 'clickTrackerInit', '52491977', '67541' ]);
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"7405e7bf46","applicationID":"308006970","transactionName":"Z1RaZ0YDXRIEAkNRW14eeVBAC1wPShJeVlNcVA==","queueTime":0,"applicationTime":211,"atts":"SxNZEQ4ZThw=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
