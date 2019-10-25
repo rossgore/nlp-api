@@ -1,4 +1,4 @@
-source("/Users/ross/Desktop/topic-modeling/topic-model-api.R")
+source("topic-model-api.R")
 
 # this tests everything once we have a doc-term-matrix
 data("AssociatedPress")
@@ -36,9 +36,9 @@ ap.tidy.docs.classified.into.topics = get.tidy.document.classification.from.lda(
 ap.tidy.docs.classified.into.topics
 
 # try and create a doc term matrix from a list of pdf and html docs
-my.list.of.docs = c("/Users/ross/Desktop/topic-modeling/global_research/156390893402424.pdf", 
-                    "/Users/ross/Desktop/topic-modeling/global_research/156398257833616.pdf",
-                    "/Users/ross/Desktop/topic-modeling/global_research/156501860173228.html")
+my.list.of.docs = c("global_research/156390893402424.pdf", 
+                    "global_research/156398257833616.pdf",
+                    "global_research/156501860173228.html")
 
 my.docs.df = from.a.list.of.files.to.file.text.df(my.list.of.docs)
 my.docs.as.tidy.txt = from.file.text.df.to.tidytext(my.docs.df)
