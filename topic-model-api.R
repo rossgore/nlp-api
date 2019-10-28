@@ -273,7 +273,7 @@ find.best.k.for.docs = function(docs.df, list.of.ks.to.try)
   
   if (successfully.gathered.metrics == FALSE)
   {
-    return(successfully.gathered.metrics %>% min())
+    return(list.of.ks.to.try %>% min())
   }
   
   k_result_tidy <- k_result %>%

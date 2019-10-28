@@ -40,7 +40,11 @@ my.list.of.docs = c("global_research/156390893402424.pdf",
                     "global_research/156398257833616.pdf",
                     "global_research/156501860173228.html")
 
+list.of.possible.ks = c(3, 4, 5, 6, 7)
+
 my.docs.df = from.a.list.of.files.to.file.text.df(my.list.of.docs)
+best.k = find.best.k.for.docs(my.docs.df, list.of.possible.ks)
+
 my.docs.as.tidy.txt = from.file.text.df.to.tidytext(my.docs.df)
 
 # we can make a word cloud of all the text
@@ -55,7 +59,7 @@ my.word.cloud.per.doc
 my.dtm = from.tidy.text.to.dtm(my.docs.as.tidy.txt)
 
 # now we can topic model with it
-my.lda = get.lda(my.dtm, my.desired.number.of.topics)
+my.lda = get.lda(my.dtm, best.k)
 my.topics = get.tidy.topics.from.lda(my.lda)
 my.top.terms = get.top.terms.from.topics(my.topics, my.desired.number.of.top.words.per.topic)
 
@@ -77,7 +81,9 @@ my.tidy.docs.classified.into.topics
 # now take everything in global research and determine the best k for a topic model.
 file.list = list.files("global_research/") 
 # try and create a doc term matrix from a list of pdf and html docs
-my.list.of.docs = paste0("global_research/", file.list)
-my.docs.df = from.a.list.of.files.to.file.text.df(my.list.of.docs)
-list.of.possible.ks = c(3, 4, 5, 6, 7)
-best.k = find.best.k.for.docs(my.docs.df, list.of.possible.ks)
+all.docs.in.a.directory = paste0("global_research/", file.list)
+
+all.docs.in.a.directory.df = from.a.list.of.files.to.file.text.df(all.docs.in.a.directory)
+
+best.k = find.best.k.for.docs(all.docs.in.a.directory.df, list.of.possible.ks)
+
