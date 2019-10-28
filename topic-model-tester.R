@@ -73,3 +73,11 @@ my.plot.of.topic.per.doc
 # or just use the top document classification and make it a tbl
 my.tidy.docs.classified.into.topics = get.tidy.document.classification.from.lda(my.topics.per.doc)
 my.tidy.docs.classified.into.topics
+
+# now take everything in global research and determine the best k for a topic model.
+file.list = list.files("global_research/") 
+# try and create a doc term matrix from a list of pdf and html docs
+my.list.of.docs = paste0("global_research/", file.list)
+my.docs.df = from.a.list.of.files.to.file.text.df(my.list.of.docs)
+list.of.possible.ks = c(3, 4, 5, 6, 7)
+best.k = find.best.k.for.docs(my.docs.df, list.of.possible.ks)

@@ -15,7 +15,6 @@ majority.vote <- function(x) {
   ux[which.max(tabulate(match(x, ux)))]
 }
 
-
 file.list = list.files("global_research/") 
 # try and create a doc term matrix from a list of pdf and html docs
 my.list.of.docs = paste0("global_research/", file.list)
@@ -43,6 +42,7 @@ many_models <- tibble(K = c(3, 4, 5, 6, 7, 8)) %>%
                                           verbose = FALSE)))
 heldout <- make.heldout(tidy.docs.sparse)
 
+# if statement around this, if it errors out to few documents to return the min choice.
 k_result <- many_models %>%
   mutate(exclusivity = map(topic_model, exclusivity),
          semantic_coherence = map(topic_model, semanticCoherence, tidy.docs.sparse),
