@@ -104,7 +104,7 @@ from.html.to.tbl = function(html.file)
   }
 }
 
-from.a.list.of.files.to.file.text.df = function(list.of.files)
+from.a.list.of.files.to.file.text.df = function(list.of.files, output.json = F)
 {
   df = data.frame(file=character(), text=character(), stringsAsFactors=FALSE) 
   for (i in 1:length(list.of.files))
@@ -118,10 +118,16 @@ from.a.list.of.files.to.file.text.df = function(list.of.files)
       df.to.add = from.html.to.tbl(the.file)
       df = df %>% rbind.data.frame(df.to.add)
     }
-  }
+  
   # add a column based on file name that indicates id
   # df = df %>% mutate(ID = group_indices(., file))
- return(df)
+  if(output.json == F){
+    return(df)
+  }
+  else{
+    return(toJSON(df))
+  }
+  }
 }
 
 get.tidy.text.from.dtm = function(the.doc.term.matrix, output.json = F)
@@ -139,7 +145,7 @@ get.tidy.text.from.dtm = function(the.doc.term.matrix, output.json = F)
   
 }
 
-from.file.text.df.to.tidytext = function(file.text.df, remove.numbers=TRUE, remove.stop.words=TRUE, stem.words=TRUE)
+from.file.text.df.to.tidytext = function(file.text.df, remove.numbers=TRUE, remove.stop.words=TRUE, stem.words=TRUE, output.json = F)
 {
   file.text.df.tokens = unnest_tokens(file.text.df, output = word, input = text)
   if (remove.numbers)
@@ -160,7 +166,13 @@ from.file.text.df.to.tidytext = function(file.text.df, remove.numbers=TRUE, remo
   
   
   file.text.df.tokens = file.text.df.tokens %>% count(document, word, sort = TRUE) %>% ungroup()
-  return(file.text.df.tokens)
+  
+  if(output.json == F){
+    return(file.text.df.tokens)
+  }
+  else{
+    return(toJSON(file.text.df.tokens))
+  }
 }
 
 from.tidy.text.to.dtm = function(tidy.text.tbl)
@@ -212,7 +224,7 @@ get.top.terms.from.topics = function(tidy.topics, top.n, output.json = F)
   }
 }
 
-get.word.cloud.from.tidy.text = function(tidy.text, per.document = FALSE, min.word.freq = 3, max.word.count = 100, output.json = F)
+get.word.cloud.from.tidy.text = function(tidy.text, per.document = FALSE, min.word.freq = 3, max.word.count = 100, output.pdf = F)
 {
   tidy.text = tidy.text %>% filter(n >= min.word.freq)
   tidy.text = tidy.text %>% arrange(desc(n))
@@ -223,12 +235,14 @@ get.word.cloud.from.tidy.text = function(tidy.text, per.document = FALSE, min.wo
     tidy.text = tidy.text %>% filter(count < max.word.count)
     # my.world.cloud = tidy.text %>% count(word) %>% with(wordcloud(word, n, min.freq =min.word.freq, max.words = max.word.count))
     my.world.cloud = ggplot(tidy.text, aes(label = word, size = n)) + geom_text_wordcloud_area() + scale_size_area(max_size = 20) + theme_minimal()
-    
-    if(output.json == F){
+    #return(my.world.cloud)
+    if(output.pdf == F){
       return(my.world.cloud)
     }
     else{
       ggsave("apwordcloud2.pdf", plot = my.world.cloud)
+      path = getwd()
+      return(path)
     }
   } 
   else
@@ -236,18 +250,20 @@ get.word.cloud.from.tidy.text = function(tidy.text, per.document = FALSE, min.wo
     tidy.text = tidy.text %>% group_by(document) %>% mutate(count = sequence(n()))
     tidy.text = tidy.text %>% filter(count < max.word.count)
     my.world.cloud = ggplot(tidy.text, aes(label = word, size = n, color=document)) + geom_text_wordcloud_area() + scale_size_area(max_size = 20) + theme_minimal() + facet_wrap(~document)
-    return(my.world.cloud)
-    if(output.json == F){
+    #return(my.world.cloud)
+    if(output.pdf == F){
       return(my.world.cloud)
     }
     else{
       ggsave("apwordcloud2.pdf", plot = my.world.cloud)
+      path = getwd()
+      return(path)
     }
   }
 
 }
 
-get.plot.for.top.terms = function(top.terms, output.json = F)
+get.plot.for.top.terms = function(top.terms, output.pdf = F)
 {
   plot.to.return = top.terms %>% mutate(term = reorder_within(term, beta, topic)) %>% 
     ggplot(aes(term, beta, fill = factor(topic))) +
@@ -256,15 +272,17 @@ get.plot.for.top.terms = function(top.terms, output.json = F)
     coord_flip() +
     scale_x_reordered()
   
-  if(output.json == F){
+  if(output.pdf == F){
     return(plot.to.return)
   }
   else{
     ggsave("toptermplot.pdf", plot = plot.to.return)
+    path = getwd()
+    return(path)
   }
 }
 
-get.plot.for.per.document = function(tidy.topics.per.doc, output.json = F)
+get.plot.for.per.document = function(tidy.topics.per.doc, output.pdf = F)
 {
   plot.to.return = tidy.topics.per.doc %>%
     mutate(document = reorder(document, gamma * topic)) %>%
@@ -272,11 +290,13 @@ get.plot.for.per.document = function(tidy.topics.per.doc, output.json = F)
     geom_boxplot() +
     facet_wrap(~ document)
 
-  if(output.json == F){
+  if(output.pdf == F){
     return(plot.to.return)
   }
   else{
     ggsave("topicplot.pdf", plot = plot.to.return)
+    path = getwd()
+    return(path)
   }
 }
 #finished
@@ -296,7 +316,7 @@ get.tidy.document.classification.from.lda = function(tidy.topics.per.doc, output
   }
 }
 
-find.best.k.for.docs = function(docs.df, list.of.ks.to.try)
+find.best.k.for.docs = function(docs.df, list.of.ks.to.try, output.json = F)
 {
   tidy.docs.df <- docs.df %>%
     mutate(line = row_number()) %>%
@@ -331,7 +351,13 @@ find.best.k.for.docs = function(docs.df, list.of.ks.to.try)
   
   if (successfully.gathered.metrics == FALSE)
   {
-    return(list.of.ks.to.try %>% min())
+    #return(list.of.ks.to.try %>% min())
+    if(output.json == F){
+      return(list.of.ks.to.try %>% min())
+    }
+    else{
+      return(toJSON(list.of.ks.to.try %>% min()))
+    }
   }
   
   k_result_tidy <- k_result %>%
@@ -365,6 +391,12 @@ find.best.k.for.docs = function(docs.df, list.of.ks.to.try)
   # take the most common choice, if there is a common choice take the min
   list.of.choices = c(best.hold.out, best.residual, best.exclusivity.coherence.balance) %>% sort()
   the.choice.for.k = majority.vote(list.of.choices)
-  return(the.choice.for.k)
+  #return(the.choice.for.k)
+  if(output.json == F){
+    return(the.choice.for.k)
+  }
+  else{
+    return(toJSON(the.choice.for.k))
+  }
 }
 
