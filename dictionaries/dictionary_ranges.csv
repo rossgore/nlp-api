@@ -1,0 +1,9 @@
+﻿sentiment_analysis_method,min_score,max_score
+afinn,-5,5
+qdap,-1,1
+lm,-1,1
+he,-1,1
+gi,-1,1
+mturk,1,10
+bing,-1,1
+nrc,-1,1

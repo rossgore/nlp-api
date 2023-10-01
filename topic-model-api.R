@@ -12,8 +12,6 @@ library(ggwordcloud)
 library(quanteda)
 library(stm)
 library(purrr)
-#library(furrr)
-#plan(multiprocess)
 
 # helper function for find.best.k.for.docs
 normit = function(x){((x-min(x))/(max(x)-min(x)))+.000001}
