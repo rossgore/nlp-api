@@ -32,7 +32,7 @@ tidy_docs_dfm <- tidy_docs_df %>%
 topic_model <- stm(tidy_docs_dfm, K = 6,verbose = FALSE, init.type = "Spectral")
 
 # score sentiment
-#panas sentiment scoring (assumes a column named 'text' in the df)
+#panas sentiment scoring (assumes a column named 'text' in the df), 1:100 just so it runs faster
 panas_all_docs_in_a_directory_df = all_docs_in_a_directory_df %>% get_all_panas_scores()
 
 # other sentiment scoring
